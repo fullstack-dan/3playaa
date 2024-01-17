@@ -1,0 +1,20 @@
+:root {
+    --background: #f5f5f5;
+
+}
+
+#root {
+    height: 100vh;
+}
+
+@font-face {
+    font-family: 'Retaliation';
+    src: url('./assets/massive_retaliation.otf');
+}
+
+* {
+    font-size: 18px;
+    font-family: 'Retaliation', sans-serif;
+
+    background-color: var(--background);
+}
