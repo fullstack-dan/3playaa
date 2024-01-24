@@ -8,8 +8,9 @@ nav {
 .nav-links {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    gap: 2rem;
 
+    font-family: 'Retaliation', sans-serif;
 }
 
 .nav-links * {

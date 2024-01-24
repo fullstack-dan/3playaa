@@ -1,0 +1,12 @@
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner-img {
+    width: 50rem;
+    align-self: center;
+
+    padding: 2rem;
+}

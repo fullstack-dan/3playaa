@@ -1,0 +1,11 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /*align-items: */
+    width: 20rem;
+    height: 30rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: #fff;
+}
