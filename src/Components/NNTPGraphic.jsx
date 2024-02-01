@@ -4,30 +4,30 @@ import { useEffect } from 'react'
 const NONEEDSRC = '/assets/NONEED/'
 
 const NNTPGraphic = () => {
-    useEffect(() => {
-        // Select all the images
-        const images = document.querySelectorAll('.nntpgraphic div img')
-
-        // Create a new Intersection Observer
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    // If the image is in the viewport, add the 'fade-in' class
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in')
-                    }
-                })
-            },
-            {
-                threshold: 0.7, // Adjust this value to control when the animation starts (1.0 means the entire image is in the viewport)
-            }
-        )
-
-        // Use the Intersection Observer to observe each image
-        images.forEach((image) => {
-            observer.observe(image)
-        })
-    }, [])
+    // useEffect(() => {
+    //     // Select all the images
+    //     const images = document.querySelectorAll('.nntpgraphic div img')
+    //
+    //     // Create a new Intersection Observer
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //                 // If the image is in the viewport, add the 'fade-in' class
+    //                 if (entry.isIntersecting) {
+    //                     entry.target.classList.add('fade-in')
+    //                 }
+    //             })
+    //         },
+    //         {
+    //             threshold: 0.7, // Adjust this value to control when the animation starts (1.0 means the entire image is in the viewport)
+    //         }
+    //     )
+    //
+    //     // Use the Intersection Observer to observe each image
+    //     images.forEach((image) => {
+    //         observer.observe(image)
+    //     })
+    // }, [])
 
     return (
         <div className='nntpgraphic'>
