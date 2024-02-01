@@ -30,7 +30,17 @@ body {
 }
 
 @media (max-width: 600px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
     html, body {
         font-size: 12px;
     }
 }
+
+/** {*/
+/*    background: #000 !important;*/
+/*    color: #0f0 !important;*/
+/*    outline: solid #f00 1px !important;*/
+/*  }*/

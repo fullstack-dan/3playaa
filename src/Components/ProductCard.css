@@ -3,9 +3,16 @@
     flex-direction: column;
     gap: 0.5rem;
     /*align-items: */
-    width: 20rem;
-    height: 30rem;
-    margin: 0.5rem;
+    align-self: flex-start;
+    width: 18rem;
+    height: 27rem;
+    /*margin: 0.5rem;*/
     padding: 0.5rem;
     background-color: #fff;
+}
+
+.product-card img {
+    /*width: 100%;*/
+    height: 20rem;
+    object-fit: cover;
 }

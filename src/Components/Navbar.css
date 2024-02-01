@@ -1,22 +1,78 @@
 nav {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-}
+    position: relative;
 
-.nav-links {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    padding: 1rem 2rem;
 
-    font-family: 'Retaliation', sans-serif;
-}
-
-.nav-links * {
-    font-size: 1.5rem;
+    font-family: Retaliation, sans-serif;
 }
 
 .nav-logo {
-    width: 10rem;
+    width: 8rem;
+}
+
+#nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+    /*width: 40%;*/
+}
+
+#nav-links a {
+    text-decoration: none;
+    /*color: var(--text-color);*/
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#nav-links a:hover {
+    color: #db2b6c;
+}
+
+.hamburger-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .hamburger-icon {
+        display: block;
+    }
+
+    #nav-links {
+        display: none;
+
+        flex-direction: column;
+        gap: 1rem;
+
+        position: absolute;
+        top: 100%;
+        right: 0;
+
+        background-color: white;
+
+        width: 100%;
+        font-size: 3rem;
+
+    }
+
+    .nav-logo {
+        width: 6rem;
+    }
+}
+
+@media (min-width: 601px) {
+    #nav-links {
+        display: flex;
+    }
 }
