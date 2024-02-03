@@ -1,0 +1,30 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 2rem;
+}
+
+.about-img-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 30rem;
+}
+
+.about-page-text {
+    margin-top: 1rem;
+}
+
+.about-page-text h1 {
+    font-family: Retaliation, sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}

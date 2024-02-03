@@ -22,7 +22,7 @@ const Navbar = () => {
     return (
         <nav className='navbar'>
             <div className='nav-logo'>
-                <Link to='/'>
+                <Link to='/' onClick={closeMenu}>
                     <img src={logo} alt='3PLAYAA' />
                 </Link>
             </div>
