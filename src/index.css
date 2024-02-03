@@ -23,10 +23,8 @@ body {
 
     background-color: var(--background);
     font-size: 18px;
-}
+    font-family: Afacad, sans-serif !important;
 
-* {
-    font-family: Afacad, sans-serif;
 }
 
 @media (max-width: 600px) {

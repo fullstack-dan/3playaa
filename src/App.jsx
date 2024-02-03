@@ -1,22 +1,28 @@
 import './App.css'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer.jsx'
-import NNTPGraphic from './Components/NNTPGraphic.jsx'
-import ProductGallery from './Components/ProductGallery.jsx'
-import Editorial from './Components/Editorial.jsx'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import products from './products.json'
+import HomePage from './Components/HomePage.jsx'
+import ShopPage from './Components/ShopPage.jsx'
+import AboutPage from './Components/AboutPage.jsx'
+import ContactPage from './Components/ContactPage.jsx'
 
 function App() {
     return (
         <>
-            <Navbar />
-            <main>
-                <NNTPGraphic />
-                <Editorial />
-                <ProductGallery products={products} />
-            </main>
-            <Footer />
+            <Router>
+                <Navbar />
+                <main>
+                    <Routes>
+                        <Route path='/' element={<HomePage />} />
+                        <Route path='/shop' element={<ShopPage />} />
+                        <Route path='/about' element={<AboutPage />} />
+                        <Route path='/contact' element={<ContactPage />} />
+                    </Routes>
+                </main>
+                <Footer />
+            </Router>
         </>
     )
 }

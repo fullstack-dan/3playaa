@@ -50,6 +50,7 @@ const NNTPGraphic = () => {
             </div>
             <div className='nn_4'>
                 <img src={NONEEDSRC + 'NN_7.png'} />
+                <div></div>
             </div>
             {/*<div className='nn_8'>*/}
             {/*    <img src={NONEEDSRC + 'NN_8.png'} />*/}

@@ -1,5 +1,6 @@
 import './Navbar.css'
 import logo from '../assets/3PLAYAA_SMALL.png'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const showMenu = () => {
@@ -11,23 +12,34 @@ const Navbar = () => {
         }
     }
 
+    const closeMenu = () => {
+        let x = document.getElementById('nav-links')
+        if (x.style.display === 'flex') {
+            x.style.display = 'none'
+        }
+    }
+
     return (
         <nav className='navbar'>
             <div className='nav-logo'>
-                <img src={logo} alt='logo' />
+                <Link to='/'>
+                    <img src={logo} alt='3PLAYAA' />
+                </Link>
             </div>
             <div className='nav-menu'>
-                <a
-                    href='javascript:void(0);'
-                    className='hamburger-icon'
-                    onClick={showMenu}
-                >
+                <a className='hamburger-icon' onClick={showMenu}>
                     M
                 </a>
                 <div id='nav-links'>
-                    <a href='#news'>Shop</a>
-                    <a href='#contact'>About</a>
-                    <a href='#about'>Contact</a>
+                    <Link to='/shop' onClick={closeMenu}>
+                        Shop
+                    </Link>
+                    <Link to='/about' onClick={closeMenu}>
+                        About
+                    </Link>
+                    <Link to='/contact' onClick={closeMenu}>
+                        Contact
+                    </Link>
                 </div>
             </div>
         </nav>
