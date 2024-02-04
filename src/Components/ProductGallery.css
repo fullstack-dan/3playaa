@@ -1,7 +1,7 @@
 .product-gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 1rem;
 
     max-width: fit-content;
