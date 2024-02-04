@@ -15,17 +15,26 @@
 
 html,
 body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
     overflow-x: hidden;
 
-    background-color: var(--background);
-    font-size: 18px;
+    font-size: 16px;
     font-family: Afacad, sans-serif !important;
 
 }
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+
 
 @media (max-width: 600px) {
     .navbar {

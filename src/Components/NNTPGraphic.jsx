@@ -19,7 +19,7 @@ const NNTPGraphic = () => {
                 })
             },
             {
-                threshold: 0.7, // Adjust this value to control when the animation starts (1.0 means the entire image is in the viewport)
+                threshold: 0.8, // Adjust this value to control when the animation starts (1.0 means the entire image is in the viewport)
             }
         )
 
@@ -36,21 +36,23 @@ const NNTPGraphic = () => {
             {/*    src={NONEEDSRC + 'NN_FULL.png'}*/}
             {/*    alt='banner'*/}
             {/*/>*/}
-            <div className='nn_1'>
-                <img src={NONEEDSRC + 'NN_1.png'} />
-                <img src={NONEEDSRC + 'NN_2.png'} />
-            </div>
-            <div className='nn_2'>
-                <img src={NONEEDSRC + 'NN_3.png'} />
-                <img src={NONEEDSRC + 'NN_4.png'} />
-            </div>
-            <div className='nn_3'>
-                <img src={NONEEDSRC + 'NN_5.png'} />
-                <img src={NONEEDSRC + 'NN_6.png'} />
-            </div>
-            <div className='nn_4'>
-                <img src={NONEEDSRC + 'NN_7.png'} />
-                <div></div>
+            <div>
+                <div className='nn_1'>
+                    <img src={NONEEDSRC + 'NN_1.png'} />
+                    <img src={NONEEDSRC + 'NN_2.png'} />
+                </div>
+                <div className='nn_2'>
+                    <img src={NONEEDSRC + 'NN_3.png'} />
+                    <img src={NONEEDSRC + 'NN_4.png'} />
+                </div>
+                <div className='nn_3'>
+                    <img src={NONEEDSRC + 'NN_5.png'} />
+                    <img src={NONEEDSRC + 'NN_6.png'} />
+                </div>
+                <div className='nn_4'>
+                    <img src={NONEEDSRC + 'NN_7.png'} />
+                    <div></div>
+                </div>
             </div>
             {/*<div className='nn_8'>*/}
             {/*    <img src={NONEEDSRC + 'NN_8.png'} />*/}

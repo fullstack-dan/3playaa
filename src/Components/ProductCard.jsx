@@ -6,13 +6,15 @@ const ProductCard = ({ product }) => {
     return (
         <div className='product-card'>
             <img src={image} alt={product.name} />
-            <h3>{product.title}</h3>
-            <p>
-                {product.variants[0].price.toLocaleString('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                })}
-            </p>
+            <div className={'product-text-info'}>
+                <h3>{product.title}</h3>
+                <p>
+                    {product.variants[0].price.toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                    })}
+                </p>
+            </div>
         </div>
     )
 }

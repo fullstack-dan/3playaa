@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
 
-    padding: 2rem;
+    padding: 0rem 2rem;
 }
 
 .about-img-cont {
@@ -17,6 +17,12 @@
     align-items: center;
 
     width: 30rem;
+}
+
+.about-img-cont img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .about-page-text {

@@ -1,9 +1,5 @@
 .nntpgraphic {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-
-    align-items: center;
+    width: 80vw;
 
     padding: 2rem;
 }

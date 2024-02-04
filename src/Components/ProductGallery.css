@@ -1,16 +1,17 @@
 .product-gallery {
     display: flex;
     flex-wrap: wrap;
-    /*width: 100%;*/
-
-    justify-content: left;
+    justify-content: flex-start;
     gap: 1rem;
+
+    max-width: fit-content;
+
+    /*padding: 2rem;*/
 }
 
 .gallery-container {
     display: flex;
-    /*flex-direction: column;*/
-    width: 100vw;
+    flex-direction: column;
 
     padding: 2rem;
 
