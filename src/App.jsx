@@ -78,6 +78,12 @@ function App() {
             }
         }
 
+        for (let key in timeLeft) {
+            if (timeLeft[key] === 0) {
+                timeLeft[key] = '0'
+            }
+        }
+
         return timeLeft
     }
 
@@ -106,7 +112,6 @@ function App() {
                         className='landing-page-logo'
                     />
                 </div>
-                {/*<h2>Countdown to February 28, 2024:</h2>*/}
                 <div className={'countdown'}>
                     {timerComponents.length ? (
                         timerComponents
