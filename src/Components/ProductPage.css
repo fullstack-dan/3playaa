@@ -1,0 +1,8 @@
+.product-page {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.current-img {
+    height: 20rem;
+}

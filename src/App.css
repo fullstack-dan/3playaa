@@ -1,8 +1,45 @@
 main {
     display: flex;
     flex-direction: column;
+
+    height: 100vh;
+
+    padding: 0 1rem;
+}
+
+.countdown {
+    display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 0rem 1rem;
+    margin: 1rem 0;
+
+    gap: 1rem;
+
+    font-family: Retaliation, sans-serif;
+    font-size: 2rem;
+}
+
+.countdown div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing-page {
+    display: grid;
+    grid-template-rows: 0.25fr 1fr;
+
+    height: 100%;
+}
+
+.landing-page-logo {
+    height: 10rem;
+    width: 10rem;
+}
+
+.lp-logo-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

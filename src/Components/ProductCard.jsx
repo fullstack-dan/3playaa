@@ -1,18 +1,35 @@
 import './ProductCard.css'
 
 const ProductCard = ({ product }) => {
-    const image = product.images[0].src
+    const { images, title, variants } = product
+    const image = images[0].src
+    const price = variants[0].price.amount.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    })
+    const compareAtPrice = variants[0].compareAtPrice.amount.toLocaleString(
+        'en-US',
+        {
+            style: 'currency',
+            currency: 'USD',
+        }
+    )
+
+    const productId = product.id.split('gid://shopify/Product/')[1]
+    console.log(productId)
 
     return (
         <div className='product-card'>
-            <img src={image} alt={product.name} />
+            <a href={`/product/${productId}`}>
+                <img src={image} alt={title} />
+            </a>
             <div className={'product-text-info'}>
-                <h3>{product.title}</h3>
+                <h3>{title}</h3>
                 <p>
-                    {product.variants[0].price.toLocaleString('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                    })}
+                    ${price}{' '}
+                    <span className={'compare-at-price'}>
+                        ${compareAtPrice}
+                    </span>
                 </p>
             </div>
         </div>
