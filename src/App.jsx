@@ -28,18 +28,13 @@ function App() {
             <ShopContext.Provider value={client}>
                 <Router>
                     <Navbar />
-                    <main>
-                        <Routes>
-                            <Route path='/' element={<HomePage />} />
-                            <Route path='/shop' element={<ShopPage />} />
-                            <Route path='/about' element={<AboutPage />} />
-                            <Route path='/contact' element={<ContactPage />} />
-                            <Route
-                                path='/product/:id'
-                                element={<ProductPage />}
-                            />
-                        </Routes>
-                    </main>
+                    <Routes>
+                        <Route path='/' element={<HomePage />} />
+                        <Route path='/shop' element={<ShopPage />} />
+                        <Route path='/about' element={<AboutPage />} />
+                        <Route path='/contact' element={<ContactPage />} />
+                        <Route path='/product/:id' element={<ProductPage />} />
+                    </Routes>
                     <Footer />
                 </Router>
             </ShopContext.Provider>

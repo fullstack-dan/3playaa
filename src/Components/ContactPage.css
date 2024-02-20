@@ -1,3 +1,10 @@
+.contact-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .contact-header {
     text-align: center;
     margin-bottom: 2rem;

@@ -7,13 +7,17 @@ const ProductCard = ({ product }) => {
         style: 'currency',
         currency: 'USD',
     })
-    const compareAtPrice = variants[0].compareAtPrice.amount.toLocaleString(
-        'en-US',
-        {
-            style: 'currency',
-            currency: 'USD',
-        }
-    )
+    let compareAtPrice = ''
+
+    if (variants[0].compareAtPrice) {
+        compareAtPrice = variants[0].compareAtPrice.amount.toLocaleString(
+            'en-US',
+            {
+                style: 'currency',
+                currency: 'USD',
+            }
+        )
+    }
 
     const productId = product.id.split('gid://shopify/Product/')[1]
 

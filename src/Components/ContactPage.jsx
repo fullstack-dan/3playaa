@@ -15,7 +15,7 @@ const ContactPage = () => {
     }
 
     return (
-        <>
+        <div className={'contact-page'}>
             <div className={'contact-header'}>
                 <h1>Contact Us</h1>
                 <p>
@@ -71,7 +71,7 @@ const ContactPage = () => {
                 </label>
                 <button type='submit'>Submit</button>
             </form>
-        </>
+        </div>
     )
 }
 
