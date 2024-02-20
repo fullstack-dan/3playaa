@@ -79,6 +79,28 @@ input {
     border-radius: 4px;
 
     transition: all 0.1s;
+
+    cursor: text;
+}
+
+textarea {
+    all: unset;
+
+    padding: 4px 8px;
+    border: 1px solid #000;
+    border-radius: 4px;
+
+    height: 5rem;
+    resize: vertical;
+
+    transition: all 0.1s;
+
+    cursor: text;
+
+}
+
+input:focus, textarea:focus {
+    border: 1px solid #db2b6c;
 }
 
 /** {*/

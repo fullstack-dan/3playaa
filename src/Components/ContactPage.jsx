@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import './ContactPage.css'
 
 const ContactPage = () => {
-    const [name, setName] = useState('')
+    const [firstname, setFirstName] = useState('')
+    const [lastname, setLastName] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
@@ -10,48 +11,67 @@ const ContactPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         // Handle form submission here
-        console.log({ name, phoneNumber, email, message })
+        console.log({ firstname, lastname, phoneNumber, email, message })
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Name:
-                <input
-                    type='text'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Phone Number:
-                <input
-                    type='tel'
-                    value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Email:
-                <input
-                    type='email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Message:
-                <textarea
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    required
-                />
-            </label>
-            <input type='submit' value='Submit' />
-        </form>
+        <>
+            <div className={'contact-header'}>
+                <h1>Contact Us</h1>
+                <p>
+                    We value your feedback and want to hear from you. Fill out
+                    the form below and we will get back to you as soon as
+                    possible.
+                </p>
+            </div>
+            <form className={'contact-form'} onSubmit={handleSubmit}>
+                <label>
+                    First Name:
+                    <input
+                        type='text'
+                        value={name}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Last Name:
+                    <input
+                        type='text'
+                        value={lastname}
+                        onChange={(e) => setLastName(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Phone Number:
+                    <input
+                        type='tel'
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Email:
+                    <input
+                        type='email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Message:
+                    <textarea
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        required
+                    />
+                </label>
+                <button type='submit'>Submit</button>
+            </form>
+        </>
     )
 }
 
