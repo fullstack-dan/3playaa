@@ -1,6 +1,5 @@
 import './NNTPGraphic.css'
 import { useEffect } from 'react'
-import contactPage from './ContactPage.jsx'
 
 const NONEEDSRC = '/assets/NONEED/'
 

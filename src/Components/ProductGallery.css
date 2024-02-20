@@ -1,8 +1,8 @@
 .product-gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(18rem, 1fr));
     justify-content: center;
-    gap: 1rem;
+    gap: 4rem;
 
     max-width: fit-content;
 
@@ -10,12 +10,11 @@
 }
 
 .gallery-container {
-    display: flex;
-    flex-direction: column;
-
     padding: 2rem;
 
+    display: flex;
     justify-content: center;
+
 }
 
 /*@media (max-width: 1100px) {*/

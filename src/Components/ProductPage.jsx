@@ -28,11 +28,23 @@ const ProductPage = () => {
     return (
         <div className={'product-page'}>
             <div className='pp-imgs-cont'>
-                <img
-                    className='current-img'
-                    src={product.images[currentImage].src}
-                    alt={product.title}
-                />
+                <div className='pp-imgs'>
+                    {product.images.map((image, index) => (
+                        <img
+                            key={image.id}
+                            src={image.src}
+                            alt={product.title}
+                            onClick={() => setCurrentImage(index)}
+                        />
+                    ))}
+                </div>
+                <div className={'current-img-cont'}>
+                    <img
+                        className='current-img'
+                        src={product.images[currentImage].src}
+                        alt={product.title}
+                    />
+                </div>
             </div>
             <div className='pp-shop-card'>
                 <h1>{product.title}</h1>
@@ -43,14 +55,15 @@ const ProductPage = () => {
                         currency: 'USD',
                     })}{' '}
                     <span className={'compare-at-price'}>
-                        $
-                        {product.variants[0].compareAtPrice.amount.toLocaleString(
-                            'en-US',
-                            {
-                                style: 'currency',
-                                currency: 'USD',
-                            }
-                        )}
+                        {product.variants[0].compareAtPrice &&
+                            '$' +
+                                product.variants[0].compareAtPrice.amount.toLocaleString(
+                                    'en-US',
+                                    {
+                                        style: 'currency',
+                                        currency: 'USD',
+                                    }
+                                )}
                     </span>
                 </p>
                 <p>{product.description}</p>
