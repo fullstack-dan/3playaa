@@ -14,7 +14,7 @@ const ShopPage = () => {
     }, [client])
 
     return (
-        <div>
+        <div className={'shop-page'}>
             <ProductGallery products={products} />
         </div>
     )

@@ -1,0 +1,29 @@
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem;
+
+    background: #f3f3f3;
+
+}
+
+footer > * {
+    flex: 1;
+}
+
+.footer-email-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 100%;
+}
+
+.footer-email-form div {
+    display: flex;
+    gap: 0.5rem;
+}

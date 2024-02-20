@@ -11,3 +11,8 @@
     justify-content: center;
     gap: 1rem;
 }
+
+.email-sign-up h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}

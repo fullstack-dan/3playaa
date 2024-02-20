@@ -7,28 +7,36 @@ const ProductCard = ({ product }) => {
         style: 'currency',
         currency: 'USD',
     })
-    const compareAtPrice = variants[0].compareAtPrice.amount.toLocaleString(
-        'en-US',
-        {
-            style: 'currency',
-            currency: 'USD',
-        }
-    )
+    let compareAtPrice = null
+
+    if (variants[0].compareAtPrice) {
+        compareAtPrice = variants[0].compareAtPrice.amount.toLocaleString(
+            'en-US',
+            {
+                style: 'currency',
+                currency: 'USD',
+            }
+        )
+    }
 
     const productId = product.id.split('gid://shopify/Product/')[1]
 
     return (
         <div className='product-card'>
-            <a href={`/product/${productId}`}>
+            <a href={`/products/${productId}`}>
                 <img src={image} alt={title} />
             </a>
             <div className={'product-text-info'}>
-                <h3>{title}</h3>
+                <a href={`/products/${productId}`}>
+                    <h3>{title}</h3>
+                </a>
                 <p>
                     ${price}{' '}
-                    <span className={'compare-at-price'}>
-                        ${compareAtPrice}
-                    </span>
+                    {compareAtPrice && (
+                        <span className={'compare-at-price'}>
+                            ${compareAtPrice}
+                        </span>
+                    )}
                 </p>
             </div>
         </div>
