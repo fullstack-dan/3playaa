@@ -18,11 +18,11 @@ const HomePage = () => {
     }, [client])
 
     return (
-        <>
+        <div className={'home-page'}>
             <NNTPGraphic />
             <Editorial />
             <ProductGallery products={products} />
-        </>
+        </div>
     )
 }
 
