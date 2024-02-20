@@ -11,6 +11,7 @@ import ShopPage from './Components/ShopPage.jsx'
 import AboutPage from './Components/AboutPage.jsx'
 import ContactPage from './Components/ContactPage.jsx'
 import ProductPage from './Components/ProductPage.jsx'
+import EmailSignUp from './Components/EmailSignUp.jsx'
 
 import logo from './assets/3PLAYAA_SMALL.png'
 
@@ -112,6 +113,7 @@ function App() {
                         <span>Coming soon...</span>
                     )}
                 </div>
+                <EmailSignUp />
             </div>
         </main>
     )

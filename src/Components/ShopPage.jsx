@@ -2,9 +2,17 @@ import React from 'react'
 import './ShopPage.css'
 
 import ProductGallery from './ProductGallery.jsx'
-import products from '../products.json'
+import { ShopContext } from '../App.jsx'
 
 const ShopPage = () => {
+    const client = React.useContext(ShopContext)
+    const [products, setProducts] = React.useState([])
+    React.useEffect(() => {
+        client.product.fetchAll().then((products) => {
+            setProducts(products)
+        })
+    }, [client])
+
     return (
         <div>
             <ProductGallery products={products} />
