@@ -16,43 +16,36 @@ import logo from './assets/3PLAYAA_SMALL.png'
 
 export const ShopContext = React.createContext()
 
-/**
-function App() {
-    const client = Client.buildClient({
-        domain: '6bb8b0-da.myshopify.com',
-        storefrontAccessToken: '2dc57f6555629f761c3b62ae161046db',
-    })
+// function App() {
+//     const client = Client.buildClient({
+//         domain: '6bb8b0-da.myshopify.com',
+//         storefrontAccessToken: '2dc57f6555629f761c3b62ae161046db',
+//     })
+//
+//     return (
+//         <>
+//             <ShopContext.Provider value={client}>
+//                 <Router>
+//                     <Navbar />
+//                     <main>
+//                         <Routes>
+//                             <Route path='/' element={<HomePage />} />
+//                             <Route path='/shop' element={<ShopPage />} />
+//                             <Route path='/about' element={<AboutPage />} />
+//                             <Route path='/contact' element={<ContactPage />} />
+//                             <Route
+//                                 path='/product/:id'
+//                                 element={<ProductPage />}
+//                             />
+//                         </Routes>
+//                     </main>
+//                     <Footer />
+//                 </Router>
+//             </ShopContext.Provider>
+//         </>
+//     )
+// }
 
-    return (
-        <>
-            <ShopContext.Provider value={client}>
-                <Router>
-                    <Navbar />
-                    <main>
-                        <Routes>
-                            <Route path='/' element={<HomePage />} />
-                            <Route path='/shop' element={<ShopPage />} />
-                            <Route path='/about' element={<AboutPage />} />
-                            <Route path='/contact' element={<ContactPage />} />
-                            <Route
-                                path='/product/:id'
-                                element={<ProductPage />}
-                            />
-                        </Routes>
-                    </main>
-                    <Footer />
-                </Router>
-            </ShopContext.Provider>
-        </>
-    )
-}
-    */
-
-/**
- * Landing Page for the App
- * @returns {Element}
- * @constructor
- */
 function App() {
     const [timeLeft, setTimeLeft] = React.useState(calculateTimeLeft())
 
