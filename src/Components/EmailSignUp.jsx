@@ -20,7 +20,6 @@ const EmailSignUp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(import.meta.env.VITE_APP_EMAIL_API_KEY)
         if (!validateEmail(email)) {
             setInfo('Please enter a valid email address.')
             return
