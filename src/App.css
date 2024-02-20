@@ -30,7 +30,7 @@ main {
     display: grid;
     grid-template-rows: 0.25fr 1fr;
 
-    height: 80vh;
+    height: 90vh;
 }
 
 .landing-page-logo {

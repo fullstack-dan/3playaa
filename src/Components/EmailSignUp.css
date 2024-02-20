@@ -1,0 +1,13 @@
+.email-sign-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-sign-up form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}

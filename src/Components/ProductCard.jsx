@@ -16,7 +16,6 @@ const ProductCard = ({ product }) => {
     )
 
     const productId = product.id.split('gid://shopify/Product/')[1]
-    console.log(productId)
 
     return (
         <div className='product-card'>
