@@ -28,8 +28,10 @@ main {
 .landing-page {
     display: grid;
     grid-template-rows: 0.25fr 1fr;
+    align-items: center;
+    justify-items: center;
 
-    height: 90vh;
+    height: 95vh;
 }
 
 .landing-page-logo {
