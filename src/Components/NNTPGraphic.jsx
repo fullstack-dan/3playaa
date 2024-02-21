@@ -1,7 +1,7 @@
 import './NNTPGraphic.css'
 import { useEffect } from 'react'
 
-const NONEEDSRC = '/assets/NONEED/'
+const NONEEDSRC = '/assets/NONEED/BW_NN_'
 
 const NNTPGraphic = () => {
     useEffect(() => {
@@ -34,19 +34,19 @@ const NNTPGraphic = () => {
             {/*/>*/}
             <div>
                 <div className='nn_1'>
-                    <img src={NONEEDSRC + 'NN_1.png'} />
-                    <img src={NONEEDSRC + 'NN_2.png'} />
+                    <img src={NONEEDSRC + '1.png'} />
+                    <img src={NONEEDSRC + '2.png'} />
                 </div>
                 <div className='nn_2'>
-                    <img src={NONEEDSRC + 'NN_3.png'} />
-                    <img src={NONEEDSRC + 'NN_4.png'} />
+                    <img src={NONEEDSRC + '3.png'} />
+                    <img src={NONEEDSRC + '4.png'} />
                 </div>
                 <div className='nn_3'>
-                    <img src={NONEEDSRC + 'NN_5.png'} />
-                    <img src={NONEEDSRC + 'NN_6.png'} />
+                    <img src={NONEEDSRC + '5.png'} />
+                    <img src={NONEEDSRC + '6.png'} />
                 </div>
                 <div className='nn_4'>
-                    <img src={NONEEDSRC + 'NN_7.png'} />
+                    <img src={NONEEDSRC + '7.png'} />
                     <div></div>
                 </div>
             </div>

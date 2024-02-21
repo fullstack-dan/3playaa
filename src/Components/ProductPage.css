@@ -53,5 +53,5 @@
 
 .pp-imgs img:hover {
     cursor: pointer;
-    border: 1px solid #db2b6c;
+    border: 1px solid var(--accent);
 }

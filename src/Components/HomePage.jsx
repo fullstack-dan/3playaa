@@ -21,6 +21,7 @@ const HomePage = () => {
         <div className={'home-page'}>
             <NNTPGraphic />
             <Editorial />
+            <h1>Shop the collection</h1>
             <ProductGallery products={products} />
         </div>
     )

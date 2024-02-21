@@ -3,12 +3,14 @@ import './AboutPage.css'
 const logoBlack = '/assets/logo-black.png'
 const logoColor = '/assets/logo-color.png'
 const logoMulti = '/assets/logo-multi.png'
+const logoBWMulti = '/assets/BW-logo-multi.png'
+const fitymi = '/assets/fitymi.png'
 
 const AboutPage = () => {
     return (
         <div className={'about-page'}>
             <div className='about-img-cont'>
-                <img src={logoMulti} alt='' />
+                <img src={fitymi} alt='' />
             </div>
             <div className={'about-page-text'}>
                 <h1>"Face It Till You Make It"</h1>
