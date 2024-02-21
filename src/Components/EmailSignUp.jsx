@@ -52,6 +52,19 @@ const EmailSignUp = () => {
                 />
                 <button onClick={handleSubmit}>Sign Up</button>
             </form>
+            <p>
+                Secure privileged access to pre-launch items 72 hours before our
+                public release. These exclusive offerings will be off-limits
+                during the public launch.
+            </p>
+            <p>
+                By submitting this form and signing up for emails, you consent
+                to receive marketing email messages (e.g. promos, cart
+                reminders) from 3Playaa at the email provided. Consent is not a
+                condition of purchase. Msg frequency varies. Unsubscribe at any
+                time by replying STOP or clicking the unsubscribe link (where
+                available).
+            </p>
         </div>
     )
 }

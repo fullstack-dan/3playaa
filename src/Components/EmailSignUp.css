@@ -3,6 +3,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+    width: 40rem;
+
+    text-align: center;
+    gap: 1rem;
 }
 
 .email-sign-up form {
@@ -14,5 +19,4 @@
 
 .email-sign-up h1 {
     font-size: 2rem;
-    margin-bottom: 1rem;
 }
