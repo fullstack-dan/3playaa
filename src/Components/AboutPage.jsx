@@ -3,50 +3,52 @@ import './AboutPage.css'
 const logoBlack = '/assets/logo-black.png'
 const logoColor = '/assets/logo-color.png'
 const logoMulti = '/assets/logo-multi.png'
+const logoBWMulti = '/assets/BW-logo-multi.png'
+const fitymi = '/assets/fitymi.png'
 
 const AboutPage = () => {
     return (
         <div className={'about-page'}>
             <div className='about-img-cont'>
-                <img src={logoMulti} alt='' />
+                <img src={fitymi} alt='' />
             </div>
             <div className={'about-page-text'}>
                 <h1>"Face It Till You Make It"</h1>
                 <p>
-                    Introducing the freshest wave in the streetwear scene,
-                    straight out of Atlanta: 3playaa, where Southern charm meets
-                    urban edge. Founded in the vibrant heart of Atlanta, 3playaa
-                    is not just a brand; it's a movement. With roots deeply
-                    embedded in the rich cultural tapestry of the city, we draw
-                    inspiration from Atlanta's dynamic music scene, its bustling
-                    streets, and the diverse stories of the people who call it
-                    home.
+                    Welcome to <strong>3Playaa</strong>, an Atlanta-born
+                    streetwear brand that embodies the spirit of authenticity
+                    and resilience. At <strong>3Playaa</strong>, we believe in
+                    the power of being true to oneself and facing life's
+                    challenges head-on, with style and confidence. Our brand is
+                    more than just clothing; it's a lifestyle that celebrates
+                    individuality and perseverance.
                     <br />
                     <br />
-                    At 3playaa, we believe in more than just fashion; we stand
-                    for expression. Each piece in our collection is designed
-                    with the individual in mind, blending bold designs with
-                    high-quality materials to create garments that speak to the
-                    soul. From sleek hoodies and tees to statement accessories,
-                    our designs are a nod to the city's legacy of innovation and
-                    resilience.
+                    In a world where pretense and conformity is the norm,{' '}
+                    <strong>3Playaa</strong> stands as a beacon of authenticity.
+                    "No Need To Pretend" is a manifesto that encourages everyone
+                    to embrace their true selves. Our designs reflect this
+                    philosophy, offering unique, bold, and unapologetic
+                    streetwear that allows you to express who you really are.
+                    From the bustling streets of Atlanta to the corners of the
+                    globe, our apparel is for those who refuse to hide their
+                    true colors.
                     <br />
                     <br />
-                    But 3playaa is more than just clothing. It's about
-                    community. We're committed to supporting local artists and
-                    creatives, providing a platform for talent to shine and
-                    stories to be shared. By wearing 3playaa, you're not just
-                    making a statement; you're becoming part of a larger
-                    narrative, one that celebrates the spirit of Atlanta and the
-                    power of individuality.
-                    <br />
-                    <br />
-                    Join us as we pave the way for a new era of streetwear,
-                    where every stitch tells a story and every garment is a
-                    canvas for self-expression. Wear it loud, wear it proud, and
-                    let 3playaa be your armor in the urban jungle. This is not
-                    just fashion. This is rebellion, this is art, this is
-                    3playaa. Welcome to the family.
+                    The journey to self-discovery and success isn't without its
+                    hurdles. Life is about confronting challenges head-on, not
+                    as obstacles, but as opportunities to grow and prove
+                    oneself. Our collections are designed to be your armor in
+                    this battle, combining comfort with the audacity to stand
+                    out and face the world head-on. Born in the heart of
+                    Atlanta, a city renowned for its rich culture and artistic
+                    innovation, <strong>3Playaa</strong> captures the essence of
+                    urban life and creativity. Each piece tells a story of
+                    triumph, resilience, and the relentless pursuit of
+                    authenticity. <strong>3Playaa</strong> isn't just a brand;
+                    it's a community of dreamers, believers, and achievers.
+                    Welcome to <strong>3Playaa</strong> – where authenticity
+                    meets streetwear.
                 </p>
             </div>
         </div>

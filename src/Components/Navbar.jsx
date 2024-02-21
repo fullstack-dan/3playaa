@@ -23,7 +23,7 @@ const Navbar = () => {
         <nav className='navbar'>
             <div className='nav-logo'>
                 <Link to='/' onClick={closeMenu}>
-                    <img src={logo} alt='3PLAYAA' />
+                    <img src={'/assets/3PLAYAA.png'} alt='3PLAYAA' />
                 </Link>
             </div>
             <div className='nav-menu'>

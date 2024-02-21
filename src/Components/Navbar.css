@@ -19,7 +19,8 @@ nav {
 
 .nav-logo img {
     width: 100%;
-    height: 100%;
+    /*height: 5rem;*/
+    object-fit: cover;
 }
 
 #nav-links {
@@ -43,7 +44,7 @@ nav {
 }
 
 #nav-links a:hover {
-    color: #db2b6c;
+    color: var(--accent);
 }
 
 .hamburger-icon {
@@ -63,7 +64,7 @@ nav {
     }
 
     #nav-links {
-        animation: slideDown 0.5s ease-out forwards;
+        /*animation: slideDown 0.5s ease-out forwards;*/
         display: none;
 
         flex-direction: column;
@@ -73,8 +74,8 @@ nav {
         top: 100%;
         right: 0;
 
-        background-color: black;
-        color: white;
+        background-color: var(--main);
+        color: var(--background);
 
         width: 100%;
         font-size: 3rem;
@@ -84,7 +85,7 @@ nav {
     }
 
     #nav-links a:active {
-        color: #db2b6c;
+        color: var(--accent);
     }
 
     .nav-logo {

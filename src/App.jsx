@@ -96,7 +96,7 @@ function App() {
             <div className='landing-page'>
                 <div className={'lp-logo-cont'}>
                     <img
-                        src={logo}
+                        src={'/assets/3PLAYAA.png'}
                         alt='3Playaa'
                         className='landing-page-logo'
                     />

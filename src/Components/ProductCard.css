@@ -7,16 +7,16 @@
     height: 25rem;
     padding: 0.5rem;
 
-    background-color: #fff;
+    background-color: var(--background);
 
-    border: 1px solid #fff;
+    border: 1px solid transparent;
     border-radius: 3px;
 
     transition: border 0.3s ease;
 }
 
 .product-card:hover {
-    border: #db2b6c 1px solid;
+    border: 1px solid var(--main);
 }
 
 .product-card img {
