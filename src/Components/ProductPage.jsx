@@ -13,13 +13,14 @@ const ProductPage = () => {
     const [selectedOptions, setSelectedOptions] = React.useState({
         quantity: 1,
     })
+    const [actionButton, setActionButton] = React.useState('Add to Cart')
+    const [info, setInfo] = React.useState(null)
 
     React.useEffect(() => {
         const productID = 'gid://shopify/Product/' + id
         client.product
             .fetch(productID)
             .then((product) => {
-                console.log(product)
                 setProduct(product)
                 setSelectedOptions({
                     ...selectedOptions,
@@ -46,6 +47,26 @@ const ProductPage = () => {
                 setCurrentImage(currentImage + 1)
             }
         }
+    }
+
+    const addToCartOrGoToCart = () => {
+        if (actionButton === 'View Cart') {
+            window.location.href = '/cart'
+            return
+        }
+        client.checkout.addLineItems(checkoutId, [
+            {
+                variantId: product.variants.find((variant) =>
+                    variant.selectedOptions.every(
+                        (option) =>
+                            option.value === selectedOptions[option.name]
+                    )
+                ).id,
+                quantity: selectedOptions.quantity,
+            },
+        ])
+        setInfo('Added to Cart')
+        setActionButton('View Cart')
     }
 
     if (!product) return null
@@ -172,24 +193,12 @@ const ProductPage = () => {
                         </div>
                     </div>
                 </div>
+                <p>{info}</p>
                 <button
                     className={'add-to-cart'}
-                    onClick={() => {
-                        client.checkout.addLineItems(checkoutId, [
-                            {
-                                variantId: product.variants.find((variant) =>
-                                    variant.selectedOptions.every(
-                                        (option) =>
-                                            option.value ===
-                                            selectedOptions[option.name]
-                                    )
-                                ).id,
-                                quantity: selectedOptions.quantity,
-                            },
-                        ])
-                    }}
+                    onClick={() => addToCartOrGoToCart()}
                 >
-                    Add to Cart
+                    {actionButton}
                 </button>
             </div>
         </div>
