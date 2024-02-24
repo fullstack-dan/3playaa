@@ -1,6 +1,7 @@
 import React from 'react'
 import './CartPage.css'
 import { ShopContext } from '../App.jsx'
+import TrashIcon from './Icons/TrashIcon.jsx'
 
 const CartPage = () => {
     const { client, checkoutId } = React.useContext(ShopContext)
@@ -55,7 +56,7 @@ const CartPage = () => {
                     <div key={item.id} className='cart-item'>
                         <img src={item.variant.image.src} alt={item.title} />
                         <div className='cart-item-details'>
-                            <div>
+                            <div className='cart-item-info'>
                                 <h3>{item.title}</h3>
                                 <p>${item.variant.price.amount}</p>
                                 {item.variant.selectedOptions.map((option) => (
@@ -91,9 +92,14 @@ const CartPage = () => {
                                     </span>
                                 </div>
                             </div>
-                            <p className={'cart-item-price'}>
-                                ${item.variant.price.amount * item.quantity}
-                            </p>
+                            <div className={'cart-item-price-cont'}>
+                                <p className={'cart-item-price'}>
+                                    ${item.variant.price.amount * item.quantity}
+                                </p>
+                                <div onClick={() => removeItem(item.id)}>
+                                    <TrashIcon />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 ))}
