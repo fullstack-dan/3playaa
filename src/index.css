@@ -51,9 +51,9 @@ a {
         flex-direction: row;
         justify-content: space-between;
     }
-    html, body {
-        font-size: 12px;
-    }
+    /*html, body {*/
+    /*    font-size: 12px;*/
+    /*}*/
 }
 
 button {
