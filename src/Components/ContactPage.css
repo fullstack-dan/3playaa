@@ -18,7 +18,7 @@
     grid-template-rows: auto auto auto; /* three rows */
     gap: 1rem;
 
-    width: 30rem;
+    max-width: 30rem;
 
     align-self: center;
 }
