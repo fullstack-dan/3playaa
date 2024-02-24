@@ -83,108 +83,115 @@ const ProductPage = () => {
                     {'>'}
                 </span>
             </div>
-            <div className='pp-shop-card'>
-                <h1>{product.title}</h1>
-                <p>
-                    $
-                    {product.variants[0].price.amount.toLocaleString('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                    })}{' '}
-                    <span className={'compare-at-price'}>
-                        {product.variants[0].compareAtPrice &&
-                            '$' +
-                                product.variants[0].compareAtPrice.amount.toLocaleString(
-                                    'en-US',
-                                    {
-                                        style: 'currency',
-                                        currency: 'USD',
-                                    }
-                                )}
-                    </span>
-                </p>
-                <p>{product.description}</p>
-            </div>
-            <div className='item-options'>
-                {product.options.map(
-                    (option) =>
-                        option.name !== 'Title' && (
-                            <div key={option.id}>
-                                <h3>{option.name}</h3>
-                                <div className='product-option-values'>
-                                    {option.values.map((value) => (
-                                        <div
-                                            key={value}
-                                            className={
-                                                'product-option-value ' +
-                                                (selectedOptions[
-                                                    option.name
-                                                ] === value.value
-                                                    ? 'selected-option'
-                                                    : '')
-                                            }
-                                            onClick={() =>
-                                                setSelectedOptions({
-                                                    ...selectedOptions,
-                                                    [option.name]: value.value,
-                                                })
-                                            }
-                                        >
-                                            {value.value}
-                                        </div>
-                                    ))}
+            <div className={'product-info'}>
+                <div className='pp-shop-card'>
+                    <h1>{product.title}</h1>
+                    <p>
+                        $
+                        {product.variants[0].price.amount.toLocaleString(
+                            'en-US',
+                            {
+                                style: 'currency',
+                                currency: 'USD',
+                            }
+                        )}{' '}
+                        <span className={'compare-at-price'}>
+                            {product.variants[0].compareAtPrice &&
+                                '$' +
+                                    product.variants[0].compareAtPrice.amount.toLocaleString(
+                                        'en-US',
+                                        {
+                                            style: 'currency',
+                                            currency: 'USD',
+                                        }
+                                    )}
+                        </span>
+                    </p>
+                    <p>{product.description}</p>
+                </div>
+                <div className='item-options'>
+                    {product.options.map(
+                        (option) =>
+                            option.name !== 'Title' && (
+                                <div key={option.id}>
+                                    <h3>{option.name}</h3>
+                                    <div className='product-option-values'>
+                                        {option.values.map((value) => (
+                                            <div
+                                                key={value}
+                                                className={
+                                                    'product-option-value ' +
+                                                    (selectedOptions[
+                                                        option.name
+                                                    ] === value.value
+                                                        ? 'selected-option'
+                                                        : '')
+                                                }
+                                                onClick={() =>
+                                                    setSelectedOptions({
+                                                        ...selectedOptions,
+                                                        [option.name]:
+                                                            value.value,
+                                                    })
+                                                }
+                                            >
+                                                {value.value}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                )}
-                <div>
-                    <h3>{'Count'}</h3>
-                    <div className='product-quantity'>
-                        <span
-                            onClick={() => {
-                                if (selectedOptions.quantity > 1) {
+                            )
+                    )}
+                    <div>
+                        <h3>{'Count'}</h3>
+                        <div className='product-quantity'>
+                            <span
+                                onClick={() => {
+                                    if (selectedOptions.quantity > 1) {
+                                        setSelectedOptions({
+                                            ...selectedOptions,
+                                            quantity:
+                                                selectedOptions.quantity - 1,
+                                        })
+                                    }
+                                }}
+                            >
+                                {'-'}
+                            </span>
+                            <p>{selectedOptions.quantity}</p>
+                            <span
+                                onClick={() =>
                                     setSelectedOptions({
                                         ...selectedOptions,
-                                        quantity: selectedOptions.quantity - 1,
+                                        quantity: selectedOptions.quantity + 1,
                                     })
                                 }
-                            }}
-                        >
-                            {'-'}
-                        </span>
-                        <p>{selectedOptions.quantity}</p>
-                        <span
-                            onClick={() =>
-                                setSelectedOptions({
-                                    ...selectedOptions,
-                                    quantity: selectedOptions.quantity + 1,
-                                })
-                            }
-                        >
-                            {'+'}
-                        </span>
+                            >
+                                {'+'}
+                            </span>
+                        </div>
                     </div>
                 </div>
+                <button
+                    className={'add-to-cart'}
+                    onClick={() => {
+                        client.checkout.addLineItems(checkoutId, [
+                            {
+                                variantId: product.variants.find((variant) =>
+                                    variant.selectedOptions.every(
+                                        (option) =>
+                                            option.value ===
+                                            selectedOptions[option.name]
+                                    )
+                                ).id,
+                                quantity: selectedOptions.quantity,
+                            },
+                        ])
+                    }}
+                >
+                    Add to Cart
+                </button>
             </div>
-            <button
-                className={'add-to-cart'}
-                onClick={() => {
-                    client.checkout.addLineItems(checkoutId, [
-                        {
-                            variantId: product.variants.find((variant) =>
-                                variant.selectedOptions.every(
-                                    (option) =>
-                                        option.value ===
-                                        selectedOptions[option.name]
-                                )
-                            ).id,
-                            quantity: 1,
-                        },
-                    ])
-                }}
-            >
-                Add to Cart
-            </button>
         </div>
     )
 }

@@ -1,4 +1,6 @@
 import './AboutPage.css'
+import ProductGallery from './ProductGallery.jsx'
+import React from 'react'
 
 const logoBlack = '/assets/logo-black.png'
 const logoColor = '/assets/logo-color.png'
@@ -6,7 +8,16 @@ const logoMulti = '/assets/logo-multi.png'
 const logoBWMulti = '/assets/BW-logo-multi.png'
 const fitymi = '/assets/fitymi.png'
 
+import { ShopContext } from '../App.jsx'
+
 const AboutPage = () => {
+    const { client } = React.useContext(ShopContext)
+    const [products, setProducts] = React.useState([])
+    React.useEffect(() => {
+        client.product.fetchAll().then((products) => {
+            setProducts(products)
+        })
+    }, [client])
     return (
         <div className={'about-page'}>
             <div className='about-img-cont'>
@@ -51,6 +62,8 @@ const AboutPage = () => {
                     meets streetwear.
                 </p>
             </div>
+            <h1>Shop the collection</h1>
+            <ProductGallery products={products} />
         </div>
     )
 }

@@ -32,6 +32,12 @@ nav {
     z-index: 999;
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 #nav-links a {
     text-decoration: none;
     /*color: var(--text-color);*/
@@ -51,6 +57,23 @@ nav {
     display: none;
     font-size: 2rem;
     cursor: pointer;
+}
+
+.cart-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.cart-icon * {
+    transition: all 0.3s ease;
+}
+
+.cart-icon:hover {
+    cursor: pointer;
+}
+
+.cart-icon svg:hover path {
+    fill: var(--accent);
 }
 
 @media (max-width: 600px) {

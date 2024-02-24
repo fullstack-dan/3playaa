@@ -11,9 +11,8 @@ import ShopPage from './Components/ShopPage.jsx'
 import AboutPage from './Components/AboutPage.jsx'
 import ContactPage from './Components/ContactPage.jsx'
 import ProductPage from './Components/ProductPage.jsx'
+import CartPage from './Components/CartPage.jsx'
 import EmailSignUp from './Components/EmailSignUp.jsx'
-
-import logo from './assets/3PLAYAA_SMALL.png'
 
 export const ShopContext = React.createContext()
 
@@ -28,13 +27,13 @@ function App() {
         []
     )
 
-    const [checkoutId, setCheckoutId] = React.useState({})
-
-    React.useEffect(() => {
+    if (!localStorage.getItem('checkoutId')) {
         client.checkout.create().then((checkout) => {
-            setCheckoutId(checkout.id)
+            localStorage.setItem('checkoutId', checkout.id)
         })
-    }, [client])
+    }
+
+    const checkoutId = localStorage.getItem('checkoutId')
 
     return (
         <>
@@ -47,6 +46,7 @@ function App() {
                         <Route path='/about' element={<AboutPage />} />
                         <Route path='/contact' element={<ContactPage />} />
                         <Route path='/products/:id' element={<ProductPage />} />
+                        <Route path='/cart' element={<CartPage />} />
                     </Routes>
                     <Footer />
                 </Router>
