@@ -3,7 +3,7 @@ import Navbar from './Components/Navbar'
 import Footer from './Components/Footer.jsx'
 
 import Client from 'shopify-buy'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import HomePage from './Components/HomePage.jsx'
@@ -18,14 +18,27 @@ import logo from './assets/3PLAYAA_SMALL.png'
 export const ShopContext = React.createContext()
 
 function App() {
-    const client = Client.buildClient({
-        domain: '6bb8b0-da.myshopify.com',
-        storefrontAccessToken: '2dc57f6555629f761c3b62ae161046db',
-    })
+    const client = useMemo(
+        () =>
+            Client.buildClient({
+                domain: '6bb8b0-da.myshopify.com',
+                storefrontAccessToken: import.meta.env
+                    .VITE_APP_STOREFRONT_ACCESS_TOKEN,
+            }),
+        []
+    )
+
+    const [checkoutId, setCheckoutId] = React.useState({})
+
+    React.useEffect(() => {
+        client.checkout.create().then((checkout) => {
+            setCheckoutId(checkout.id)
+        })
+    }, [client])
 
     return (
         <>
-            <ShopContext.Provider value={client}>
+            <ShopContext.Provider value={{ client, checkoutId }}>
                 <Router>
                     <Navbar />
                     <Routes>

@@ -7,16 +7,25 @@ import { useParams } from 'react-router-dom'
 
 const ProductPage = () => {
     const { id } = useParams()
-    const client = React.useContext(ShopContext)
+    const { client, checkoutId } = React.useContext(ShopContext)
     const [product, setProduct] = React.useState(null)
     const [currentImage, setCurrentImage] = React.useState(0)
+    const [selectedOptions, setSelectedOptions] = React.useState({
+        quantity: 1,
+    })
 
     React.useEffect(() => {
         const productID = 'gid://shopify/Product/' + id
         client.product
             .fetch(productID)
             .then((product) => {
+                console.log(product)
                 setProduct(product)
+                setSelectedOptions({
+                    ...selectedOptions,
+                    [product.options[0].name]:
+                        product.options[0].values[0].value,
+                })
             })
             .catch((error) => {
                 console.error('Error fetching product', error)
@@ -96,6 +105,86 @@ const ProductPage = () => {
                 </p>
                 <p>{product.description}</p>
             </div>
+            <div className='item-options'>
+                {product.options.map(
+                    (option) =>
+                        option.name !== 'Title' && (
+                            <div key={option.id}>
+                                <h3>{option.name}</h3>
+                                <div className='product-option-values'>
+                                    {option.values.map((value) => (
+                                        <div
+                                            key={value}
+                                            className={
+                                                'product-option-value ' +
+                                                (selectedOptions[
+                                                    option.name
+                                                ] === value.value
+                                                    ? 'selected-option'
+                                                    : '')
+                                            }
+                                            onClick={() =>
+                                                setSelectedOptions({
+                                                    ...selectedOptions,
+                                                    [option.name]: value.value,
+                                                })
+                                            }
+                                        >
+                                            {value.value}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )
+                )}
+                <div>
+                    <h3>{'Count'}</h3>
+                    <div className='product-quantity'>
+                        <span
+                            onClick={() => {
+                                if (selectedOptions.quantity > 1) {
+                                    setSelectedOptions({
+                                        ...selectedOptions,
+                                        quantity: selectedOptions.quantity - 1,
+                                    })
+                                }
+                            }}
+                        >
+                            {'-'}
+                        </span>
+                        <p>{selectedOptions.quantity}</p>
+                        <span
+                            onClick={() =>
+                                setSelectedOptions({
+                                    ...selectedOptions,
+                                    quantity: selectedOptions.quantity + 1,
+                                })
+                            }
+                        >
+                            {'+'}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <button
+                className={'add-to-cart'}
+                onClick={() => {
+                    client.checkout.addLineItems(checkoutId, [
+                        {
+                            variantId: product.variants.find((variant) =>
+                                variant.selectedOptions.every(
+                                    (option) =>
+                                        option.value ===
+                                        selectedOptions[option.name]
+                                )
+                            ).id,
+                            quantity: 1,
+                        },
+                    ])
+                }}
+            >
+                Add to Cart
+            </button>
         </div>
     )
 }

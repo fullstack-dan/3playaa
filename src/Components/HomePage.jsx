@@ -7,7 +7,7 @@ import ProductGallery from './ProductGallery.jsx'
 import { ShopContext } from '../App.jsx'
 
 const HomePage = () => {
-    const client = React.useContext(ShopContext)
+    const { client } = React.useContext(ShopContext)
 
     const [products, setProducts] = React.useState([])
 

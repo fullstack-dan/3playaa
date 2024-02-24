@@ -1,48 +1,164 @@
-[
-  {
-    "id": "gid://shopify/Product/8957779738931",
-    "availableForSale": true,
-    "createdAt": "2024-02-18T23:00:03Z",
-    "updatedAt": "2024-02-18T23:04:34Z",
-    "descriptionHtml": "No Need To Pretend Hoodie in Pink",
-    "description": "No Need To Pretend Hoodie in Pink",
-    "handle": "no-need-to-pretend-hoodie",
-    "productType": "",
-    "title": "No Need To Pretend Hoodie",
-    "vendor": "My Store",
-    "publishedAt": "2024-02-18T23:04:34Z",
-    "onlineStoreUrl": null,
-    "options": [
-      {
-        "id": "gid://shopify/ProductOption/11287410704691",
-        "name": "Title",
-        "values": [
-          {
-            "value": "Default Title",
-            "type": {
-              "name": "String",
-              "kind": "SCALAR"
-            }
+{
+  "__typename": "Product",
+  "id": "gid://shopify/Product/8959693062451",
+  "availableForSale": true,
+  "createdAt": "2024-02-20T18:00:59Z",
+  "updatedAt": "2024-02-24T17:44:41Z",
+  "descriptionHtml": "Pink No Need To Pretend Hoodie",
+  "description": "Pink No Need To Pretend Hoodie",
+  "handle": "no-need-to-pretend-hoodie-1",
+  "productType": "",
+  "title": "No Need To Pretend Hoodie",
+  "vendor": "My Store",
+  "publishedAt": "2024-02-20T18:00:59Z",
+  "onlineStoreUrl": null,
+  "options": [
+    {
+      "id": "gid://shopify/ProductOption/11298026488115",
+      "name": "Size",
+      "values": [
+        {
+          "value": "S",
+          "type": {
+            "name": "String",
+            "kind": "SCALAR"
           }
-        ],
+        },
+        {
+          "value": "M",
+          "type": {
+            "name": "String",
+            "kind": "SCALAR"
+          }
+        },
+        {
+          "value": "L",
+          "type": {
+            "name": "String",
+            "kind": "SCALAR"
+          }
+        },
+        {
+          "value": "XL",
+          "type": {
+            "name": "String",
+            "kind": "SCALAR"
+          }
+        },
+        {
+          "value": "XXL",
+          "type": {
+            "name": "String",
+            "kind": "SCALAR"
+          }
+        }
+      ],
+      "type": {
+        "name": "ProductOption",
+        "kind": "OBJECT",
+        "fieldBaseTypes": {
+          "name": "String",
+          "values": "String"
+        },
+        "implementsNode": true
+      }
+    }
+  ],
+  "images": [
+    {
+      "id": "gid://shopify/ProductImage/43777202880819",
+      "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/BC0C29C2-90F3-4BD8-8D0C-F0D6F13CB8DD.jpg?v=1708555737",
+      "altText": null,
+      "width": 1800,
+      "height": 2400,
+      "type": {
+        "name": "Image",
+        "kind": "OBJECT",
+        "fieldBaseTypes": {
+          "altText": "String",
+          "height": "Int",
+          "id": "ID",
+          "url": "URL",
+          "width": "Int"
+        },
+        "implementsNode": false
+      },
+      "hasNextPage": {
+        "value": true
+      },
+      "hasPreviousPage": false,
+      "variableValues": {
+        "id": "gid://shopify/Product/8959693062451"
+      }
+    },
+    {
+      "id": "gid://shopify/ProductImage/43777202782515",
+      "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/5AE1EA44-4EF5-4D19-B35E-8D708C1CF179.jpg?v=1708555737",
+      "altText": null,
+      "width": 1800,
+      "height": 2400,
+      "type": {
+        "name": "Image",
+        "kind": "OBJECT",
+        "fieldBaseTypes": {
+          "altText": "String",
+          "height": "Int",
+          "id": "ID",
+          "url": "URL",
+          "width": "Int"
+        },
+        "implementsNode": false
+      },
+      "hasNextPage": false,
+      "hasPreviousPage": {
+        "value": true
+      },
+      "variableValues": {
+        "id": "gid://shopify/Product/8959693062451"
+      }
+    }
+  ],
+  "variants": [
+    {
+      "id": "gid://shopify/ProductVariant/48154005635379",
+      "title": "S",
+      "price": {
+        "amount": "80.0",
+        "currencyCode": "USD",
         "type": {
-          "name": "ProductOption",
+          "name": "MoneyV2",
           "kind": "OBJECT",
           "fieldBaseTypes": {
-            "name": "String",
-            "values": "String"
+            "amount": "Decimal",
+            "currencyCode": "CurrencyCode"
           },
-          "implementsNode": true
+          "implementsNode": false
         }
-      }
-    ],
-    "images": [
-      {
-        "id": "gid://shopify/ProductImage/43752442626355",
-        "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/HOODIE.png?v=1708297205",
+      },
+      "priceV2": {
+        "amount": "80.0",
+        "currencyCode": "USD",
+        "type": {
+          "name": "MoneyV2",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "amount": "Decimal",
+            "currencyCode": "CurrencyCode"
+          },
+          "implementsNode": false
+        }
+      },
+      "weight": 0,
+      "available": true,
+      "sku": "",
+      "compareAtPrice": null,
+      "compareAtPriceV2": null,
+      "image": {
+        "id": "gid://shopify/ProductImage/43777202880819",
+        "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/BC0C29C2-90F3-4BD8-8D0C-F0D6F13CB8DD.jpg?v=1708555737",
         "altText": null,
-        "width": 714,
-        "height": 850,
+        "width": 1800,
+        "height": 2400,
         "type": {
           "name": "Image",
           "kind": "OBJECT",
@@ -54,227 +170,110 @@
             "width": "Int"
           },
           "implementsNode": false
-        },
-        "hasNextPage": false,
-        "hasPreviousPage": false,
-        "variableValues": {
-          "first": 20
         }
-      }
-    ],
-    "variants": [
-      {
-        "id": "gid://shopify/ProductVariant/48109487489331",
-        "title": "Default Title",
-        "price": {
-          "amount": "125.0",
-          "currencyCode": "USD",
-          "type": {
-            "name": "MoneyV2",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "amount": "Decimal",
-              "currencyCode": "CurrencyCode"
-            },
-            "implementsNode": false
-          }
-        },
-        "priceV2": {
-          "amount": "125.0",
-          "currencyCode": "USD",
-          "type": {
-            "name": "MoneyV2",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "amount": "Decimal",
-              "currencyCode": "CurrencyCode"
-            },
-            "implementsNode": false
-          }
-        },
-        "weight": 5,
-        "available": true,
-        "sku": "",
-        "compareAtPrice": {
-          "amount": "200.0",
-          "currencyCode": "USD",
-          "type": {
-            "name": "MoneyV2",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "amount": "Decimal",
-              "currencyCode": "CurrencyCode"
-            },
-            "implementsNode": false
-          }
-        },
-        "compareAtPriceV2": {
-          "amount": "200.0",
-          "currencyCode": "USD",
-          "type": {
-            "name": "MoneyV2",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "amount": "Decimal",
-              "currencyCode": "CurrencyCode"
-            },
-            "implementsNode": false
-          }
-        },
-        "image": {
-          "id": "gid://shopify/ProductImage/43752442626355",
-          "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/HOODIE.png?v=1708297205",
-          "altText": null,
-          "width": 714,
-          "height": 850,
-          "type": {
-            "name": "Image",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "altText": "String",
-              "height": "Int",
-              "id": "ID",
-              "url": "URL",
-              "width": "Int"
-            },
-            "implementsNode": false
-          }
-        },
-        "selectedOptions": [
-          {
-            "name": "Title",
-            "value": "Default Title",
-            "type": {
-              "name": "SelectedOption",
-              "kind": "OBJECT",
-              "fieldBaseTypes": {
-                "name": "String",
-                "value": "String"
-              },
-              "implementsNode": false
-            }
-          }
-        ],
-        "unitPrice": null,
-        "unitPriceMeasurement": {
-          "measuredType": null,
-          "quantityUnit": null,
-          "quantityValue": 0,
-          "referenceUnit": null,
-          "referenceValue": 0,
-          "type": {
-            "name": "UnitPriceMeasurement",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "measuredType": "UnitPriceMeasurementMeasuredType",
-              "quantityUnit": "UnitPriceMeasurementMeasuredUnit",
-              "quantityValue": "Float",
-              "referenceUnit": "UnitPriceMeasurementMeasuredUnit",
-              "referenceValue": "Int"
-            },
-            "implementsNode": false
-          }
-        },
-        "type": {
-          "name": "ProductVariant",
-          "kind": "OBJECT",
-          "fieldBaseTypes": {
-            "availableForSale": "Boolean",
-            "compareAtPrice": "MoneyV2",
-            "id": "ID",
-            "image": "Image",
-            "price": "MoneyV2",
-            "product": "Product",
-            "selectedOptions": "SelectedOption",
-            "sku": "String",
-            "title": "String",
-            "unitPrice": "MoneyV2",
-            "unitPriceMeasurement": "UnitPriceMeasurement",
-            "weight": "Float"
-          },
-          "implementsNode": true
-        },
-        "hasNextPage": false,
-        "hasPreviousPage": false,
-        "variableValues": {
-          "first": 20
-        }
-      }
-    ],
-    "type": {
-      "name": "Product",
-      "kind": "OBJECT",
-      "fieldBaseTypes": {
-        "availableForSale": "Boolean",
-        "createdAt": "DateTime",
-        "description": "String",
-        "descriptionHtml": "HTML",
-        "handle": "String",
-        "id": "ID",
-        "images": "ImageConnection",
-        "onlineStoreUrl": "URL",
-        "options": "ProductOption",
-        "productType": "String",
-        "publishedAt": "DateTime",
-        "title": "String",
-        "updatedAt": "DateTime",
-        "variants": "ProductVariantConnection",
-        "vendor": "String"
       },
-      "implementsNode": true
-    },
-    "hasNextPage": {
-      "value": true
-    },
-    "hasPreviousPage": false,
-    "variableValues": {
-      "first": 20
-    }
-  },
-  {
-    "id": "gid://shopify/Product/8957779804467",
-    "availableForSale": true,
-    "createdAt": "2024-02-18T23:00:51Z",
-    "updatedAt": "2024-02-18T23:04:34Z",
-    "descriptionHtml": "Green Hoodie with 3Playaa Logo",
-    "description": "Green Hoodie with 3Playaa Logo",
-    "handle": "3-logo-hoodie",
-    "productType": "",
-    "title": "3 Logo Hoodie",
-    "vendor": "My Store",
-    "publishedAt": "2024-02-18T23:04:34Z",
-    "onlineStoreUrl": null,
-    "options": [
-      {
-        "id": "gid://shopify/ProductOption/11287410770227",
-        "name": "Title",
-        "values": [
-          {
-            "value": "Default Title",
-            "type": {
+      "selectedOptions": [
+        {
+          "name": "Size",
+          "value": "S",
+          "type": {
+            "name": "SelectedOption",
+            "kind": "OBJECT",
+            "fieldBaseTypes": {
               "name": "String",
-              "kind": "SCALAR"
-            }
+              "value": "String"
+            },
+            "implementsNode": false
           }
-        ],
+        }
+      ],
+      "unitPrice": null,
+      "unitPriceMeasurement": {
+        "measuredType": null,
+        "quantityUnit": null,
+        "quantityValue": 0,
+        "referenceUnit": null,
+        "referenceValue": 0,
         "type": {
-          "name": "ProductOption",
+          "name": "UnitPriceMeasurement",
           "kind": "OBJECT",
           "fieldBaseTypes": {
-            "name": "String",
-            "values": "String"
+            "measuredType": "UnitPriceMeasurementMeasuredType",
+            "quantityUnit": "UnitPriceMeasurementMeasuredUnit",
+            "quantityValue": "Float",
+            "referenceUnit": "UnitPriceMeasurementMeasuredUnit",
+            "referenceValue": "Int"
           },
-          "implementsNode": true
+          "implementsNode": false
         }
+      },
+      "type": {
+        "name": "ProductVariant",
+        "kind": "OBJECT",
+        "fieldBaseTypes": {
+          "availableForSale": "Boolean",
+          "compareAtPrice": "MoneyV2",
+          "id": "ID",
+          "image": "Image",
+          "price": "MoneyV2",
+          "product": "Product",
+          "selectedOptions": "SelectedOption",
+          "sku": "String",
+          "title": "String",
+          "unitPrice": "MoneyV2",
+          "unitPriceMeasurement": "UnitPriceMeasurement",
+          "weight": "Float"
+        },
+        "implementsNode": true
+      },
+      "hasNextPage": {
+        "value": true
+      },
+      "hasPreviousPage": false,
+      "variableValues": {
+        "id": "gid://shopify/Product/8959693062451"
       }
-    ],
-    "images": [
-      {
-        "id": "gid://shopify/ProductImage/43752442790195",
-        "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/291758905_428772039158281_3817451297617485093_n.jpg?v=1708297253",
+    },
+    {
+      "id": "gid://shopify/ProductVariant/48154005668147",
+      "title": "M",
+      "price": {
+        "amount": "80.0",
+        "currencyCode": "USD",
+        "type": {
+          "name": "MoneyV2",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "amount": "Decimal",
+            "currencyCode": "CurrencyCode"
+          },
+          "implementsNode": false
+        }
+      },
+      "priceV2": {
+        "amount": "80.0",
+        "currencyCode": "USD",
+        "type": {
+          "name": "MoneyV2",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "amount": "Decimal",
+            "currencyCode": "CurrencyCode"
+          },
+          "implementsNode": false
+        }
+      },
+      "weight": 0,
+      "available": false,
+      "sku": "",
+      "compareAtPrice": null,
+      "compareAtPriceV2": null,
+      "image": {
+        "id": "gid://shopify/ProductImage/43777202880819",
+        "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/BC0C29C2-90F3-4BD8-8D0C-F0D6F13CB8DD.jpg?v=1708555737",
         "altText": null,
-        "width": 1080,
-        "height": 1079,
+        "width": 1800,
+        "height": 2400,
         "type": {
           "name": "Image",
           "kind": "OBJECT",
@@ -286,181 +285,442 @@
             "width": "Int"
           },
           "implementsNode": false
-        },
-        "hasNextPage": false,
-        "hasPreviousPage": false,
-        "variableValues": {
-          "first": 20
         }
-      }
-    ],
-    "variants": [
-      {
-        "id": "gid://shopify/ProductVariant/48109487620403",
-        "title": "Default Title",
-        "price": {
-          "amount": "125.0",
-          "currencyCode": "USD",
+      },
+      "selectedOptions": [
+        {
+          "name": "Size",
+          "value": "M",
           "type": {
-            "name": "MoneyV2",
+            "name": "SelectedOption",
             "kind": "OBJECT",
             "fieldBaseTypes": {
-              "amount": "Decimal",
-              "currencyCode": "CurrencyCode"
+              "name": "String",
+              "value": "String"
             },
             "implementsNode": false
           }
-        },
-        "priceV2": {
-          "amount": "125.0",
-          "currencyCode": "USD",
-          "type": {
-            "name": "MoneyV2",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "amount": "Decimal",
-              "currencyCode": "CurrencyCode"
-            },
-            "implementsNode": false
-          }
-        },
-        "weight": 5,
-        "available": true,
-        "sku": "",
-        "compareAtPrice": {
-          "amount": "200.0",
-          "currencyCode": "USD",
-          "type": {
-            "name": "MoneyV2",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "amount": "Decimal",
-              "currencyCode": "CurrencyCode"
-            },
-            "implementsNode": false
-          }
-        },
-        "compareAtPriceV2": {
-          "amount": "200.0",
-          "currencyCode": "USD",
-          "type": {
-            "name": "MoneyV2",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "amount": "Decimal",
-              "currencyCode": "CurrencyCode"
-            },
-            "implementsNode": false
-          }
-        },
-        "image": {
-          "id": "gid://shopify/ProductImage/43752442790195",
-          "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/291758905_428772039158281_3817451297617485093_n.jpg?v=1708297253",
-          "altText": null,
-          "width": 1080,
-          "height": 1079,
-          "type": {
-            "name": "Image",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "altText": "String",
-              "height": "Int",
-              "id": "ID",
-              "url": "URL",
-              "width": "Int"
-            },
-            "implementsNode": false
-          }
-        },
-        "selectedOptions": [
-          {
-            "name": "Title",
-            "value": "Default Title",
-            "type": {
-              "name": "SelectedOption",
-              "kind": "OBJECT",
-              "fieldBaseTypes": {
-                "name": "String",
-                "value": "String"
-              },
-              "implementsNode": false
-            }
-          }
-        ],
-        "unitPrice": null,
-        "unitPriceMeasurement": {
-          "measuredType": null,
-          "quantityUnit": null,
-          "quantityValue": 0,
-          "referenceUnit": null,
-          "referenceValue": 0,
-          "type": {
-            "name": "UnitPriceMeasurement",
-            "kind": "OBJECT",
-            "fieldBaseTypes": {
-              "measuredType": "UnitPriceMeasurementMeasuredType",
-              "quantityUnit": "UnitPriceMeasurementMeasuredUnit",
-              "quantityValue": "Float",
-              "referenceUnit": "UnitPriceMeasurementMeasuredUnit",
-              "referenceValue": "Int"
-            },
-            "implementsNode": false
-          }
-        },
+        }
+      ],
+      "unitPrice": null,
+      "unitPriceMeasurement": {
+        "measuredType": null,
+        "quantityUnit": null,
+        "quantityValue": 0,
+        "referenceUnit": null,
+        "referenceValue": 0,
         "type": {
-          "name": "ProductVariant",
+          "name": "UnitPriceMeasurement",
           "kind": "OBJECT",
           "fieldBaseTypes": {
-            "availableForSale": "Boolean",
-            "compareAtPrice": "MoneyV2",
-            "id": "ID",
-            "image": "Image",
-            "price": "MoneyV2",
-            "product": "Product",
-            "selectedOptions": "SelectedOption",
-            "sku": "String",
-            "title": "String",
-            "unitPrice": "MoneyV2",
-            "unitPriceMeasurement": "UnitPriceMeasurement",
-            "weight": "Float"
+            "measuredType": "UnitPriceMeasurementMeasuredType",
+            "quantityUnit": "UnitPriceMeasurementMeasuredUnit",
+            "quantityValue": "Float",
+            "referenceUnit": "UnitPriceMeasurementMeasuredUnit",
+            "referenceValue": "Int"
           },
-          "implementsNode": true
-        },
-        "hasNextPage": false,
-        "hasPreviousPage": false,
-        "variableValues": {
-          "first": 20
+          "implementsNode": false
         }
-      }
-    ],
-    "type": {
-      "name": "Product",
-      "kind": "OBJECT",
-      "fieldBaseTypes": {
-        "availableForSale": "Boolean",
-        "createdAt": "DateTime",
-        "description": "String",
-        "descriptionHtml": "HTML",
-        "handle": "String",
-        "id": "ID",
-        "images": "ImageConnection",
-        "onlineStoreUrl": "URL",
-        "options": "ProductOption",
-        "productType": "String",
-        "publishedAt": "DateTime",
-        "title": "String",
-        "updatedAt": "DateTime",
-        "variants": "ProductVariantConnection",
-        "vendor": "String"
       },
-      "implementsNode": true
+      "type": {
+        "name": "ProductVariant",
+        "kind": "OBJECT",
+        "fieldBaseTypes": {
+          "availableForSale": "Boolean",
+          "compareAtPrice": "MoneyV2",
+          "id": "ID",
+          "image": "Image",
+          "price": "MoneyV2",
+          "product": "Product",
+          "selectedOptions": "SelectedOption",
+          "sku": "String",
+          "title": "String",
+          "unitPrice": "MoneyV2",
+          "unitPriceMeasurement": "UnitPriceMeasurement",
+          "weight": "Float"
+        },
+        "implementsNode": true
+      },
+      "hasNextPage": {
+        "value": true
+      },
+      "hasPreviousPage": {
+        "value": true
+      },
+      "variableValues": {
+        "id": "gid://shopify/Product/8959693062451"
+      }
     },
-    "hasNextPage": false,
-    "hasPreviousPage": {
-      "value": true
+    {
+      "id": "gid://shopify/ProductVariant/48154005700915",
+      "title": "L",
+      "price": {
+        "amount": "80.0",
+        "currencyCode": "USD",
+        "type": {
+          "name": "MoneyV2",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "amount": "Decimal",
+            "currencyCode": "CurrencyCode"
+          },
+          "implementsNode": false
+        }
+      },
+      "priceV2": {
+        "amount": "80.0",
+        "currencyCode": "USD",
+        "type": {
+          "name": "MoneyV2",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "amount": "Decimal",
+            "currencyCode": "CurrencyCode"
+          },
+          "implementsNode": false
+        }
+      },
+      "weight": 0,
+      "available": false,
+      "sku": "",
+      "compareAtPrice": null,
+      "compareAtPriceV2": null,
+      "image": {
+        "id": "gid://shopify/ProductImage/43777202880819",
+        "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/BC0C29C2-90F3-4BD8-8D0C-F0D6F13CB8DD.jpg?v=1708555737",
+        "altText": null,
+        "width": 1800,
+        "height": 2400,
+        "type": {
+          "name": "Image",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "altText": "String",
+            "height": "Int",
+            "id": "ID",
+            "url": "URL",
+            "width": "Int"
+          },
+          "implementsNode": false
+        }
+      },
+      "selectedOptions": [
+        {
+          "name": "Size",
+          "value": "L",
+          "type": {
+            "name": "SelectedOption",
+            "kind": "OBJECT",
+            "fieldBaseTypes": {
+              "name": "String",
+              "value": "String"
+            },
+            "implementsNode": false
+          }
+        }
+      ],
+      "unitPrice": null,
+      "unitPriceMeasurement": {
+        "measuredType": null,
+        "quantityUnit": null,
+        "quantityValue": 0,
+        "referenceUnit": null,
+        "referenceValue": 0,
+        "type": {
+          "name": "UnitPriceMeasurement",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "measuredType": "UnitPriceMeasurementMeasuredType",
+            "quantityUnit": "UnitPriceMeasurementMeasuredUnit",
+            "quantityValue": "Float",
+            "referenceUnit": "UnitPriceMeasurementMeasuredUnit",
+            "referenceValue": "Int"
+          },
+          "implementsNode": false
+        }
+      },
+      "type": {
+        "name": "ProductVariant",
+        "kind": "OBJECT",
+        "fieldBaseTypes": {
+          "availableForSale": "Boolean",
+          "compareAtPrice": "MoneyV2",
+          "id": "ID",
+          "image": "Image",
+          "price": "MoneyV2",
+          "product": "Product",
+          "selectedOptions": "SelectedOption",
+          "sku": "String",
+          "title": "String",
+          "unitPrice": "MoneyV2",
+          "unitPriceMeasurement": "UnitPriceMeasurement",
+          "weight": "Float"
+        },
+        "implementsNode": true
+      },
+      "hasNextPage": {
+        "value": true
+      },
+      "hasPreviousPage": {
+        "value": true
+      },
+      "variableValues": {
+        "id": "gid://shopify/Product/8959693062451"
+      }
     },
-    "variableValues": {
-      "first": 20
+    {
+      "id": "gid://shopify/ProductVariant/48154005733683",
+      "title": "XL",
+      "price": {
+        "amount": "80.0",
+        "currencyCode": "USD",
+        "type": {
+          "name": "MoneyV2",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "amount": "Decimal",
+            "currencyCode": "CurrencyCode"
+          },
+          "implementsNode": false
+        }
+      },
+      "priceV2": {
+        "amount": "80.0",
+        "currencyCode": "USD",
+        "type": {
+          "name": "MoneyV2",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "amount": "Decimal",
+            "currencyCode": "CurrencyCode"
+          },
+          "implementsNode": false
+        }
+      },
+      "weight": 0,
+      "available": false,
+      "sku": "",
+      "compareAtPrice": null,
+      "compareAtPriceV2": null,
+      "image": {
+        "id": "gid://shopify/ProductImage/43777202880819",
+        "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/BC0C29C2-90F3-4BD8-8D0C-F0D6F13CB8DD.jpg?v=1708555737",
+        "altText": null,
+        "width": 1800,
+        "height": 2400,
+        "type": {
+          "name": "Image",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "altText": "String",
+            "height": "Int",
+            "id": "ID",
+            "url": "URL",
+            "width": "Int"
+          },
+          "implementsNode": false
+        }
+      },
+      "selectedOptions": [
+        {
+          "name": "Size",
+          "value": "XL",
+          "type": {
+            "name": "SelectedOption",
+            "kind": "OBJECT",
+            "fieldBaseTypes": {
+              "name": "String",
+              "value": "String"
+            },
+            "implementsNode": false
+          }
+        }
+      ],
+      "unitPrice": null,
+      "unitPriceMeasurement": {
+        "measuredType": null,
+        "quantityUnit": null,
+        "quantityValue": 0,
+        "referenceUnit": null,
+        "referenceValue": 0,
+        "type": {
+          "name": "UnitPriceMeasurement",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "measuredType": "UnitPriceMeasurementMeasuredType",
+            "quantityUnit": "UnitPriceMeasurementMeasuredUnit",
+            "quantityValue": "Float",
+            "referenceUnit": "UnitPriceMeasurementMeasuredUnit",
+            "referenceValue": "Int"
+          },
+          "implementsNode": false
+        }
+      },
+      "type": {
+        "name": "ProductVariant",
+        "kind": "OBJECT",
+        "fieldBaseTypes": {
+          "availableForSale": "Boolean",
+          "compareAtPrice": "MoneyV2",
+          "id": "ID",
+          "image": "Image",
+          "price": "MoneyV2",
+          "product": "Product",
+          "selectedOptions": "SelectedOption",
+          "sku": "String",
+          "title": "String",
+          "unitPrice": "MoneyV2",
+          "unitPriceMeasurement": "UnitPriceMeasurement",
+          "weight": "Float"
+        },
+        "implementsNode": true
+      },
+      "hasNextPage": {
+        "value": true
+      },
+      "hasPreviousPage": {
+        "value": true
+      },
+      "variableValues": {
+        "id": "gid://shopify/Product/8959693062451"
+      }
+    },
+    {
+      "id": "gid://shopify/ProductVariant/48154005766451",
+      "title": "XXL",
+      "price": {
+        "amount": "80.0",
+        "currencyCode": "USD",
+        "type": {
+          "name": "MoneyV2",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "amount": "Decimal",
+            "currencyCode": "CurrencyCode"
+          },
+          "implementsNode": false
+        }
+      },
+      "priceV2": {
+        "amount": "80.0",
+        "currencyCode": "USD",
+        "type": {
+          "name": "MoneyV2",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "amount": "Decimal",
+            "currencyCode": "CurrencyCode"
+          },
+          "implementsNode": false
+        }
+      },
+      "weight": 0,
+      "available": false,
+      "sku": "",
+      "compareAtPrice": null,
+      "compareAtPriceV2": null,
+      "image": {
+        "id": "gid://shopify/ProductImage/43777202880819",
+        "src": "https://cdn.shopify.com/s/files/1/0864/0685/7011/files/BC0C29C2-90F3-4BD8-8D0C-F0D6F13CB8DD.jpg?v=1708555737",
+        "altText": null,
+        "width": 1800,
+        "height": 2400,
+        "type": {
+          "name": "Image",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "altText": "String",
+            "height": "Int",
+            "id": "ID",
+            "url": "URL",
+            "width": "Int"
+          },
+          "implementsNode": false
+        }
+      },
+      "selectedOptions": [
+        {
+          "name": "Size",
+          "value": "XXL",
+          "type": {
+            "name": "SelectedOption",
+            "kind": "OBJECT",
+            "fieldBaseTypes": {
+              "name": "String",
+              "value": "String"
+            },
+            "implementsNode": false
+          }
+        }
+      ],
+      "unitPrice": null,
+      "unitPriceMeasurement": {
+        "measuredType": null,
+        "quantityUnit": null,
+        "quantityValue": 0,
+        "referenceUnit": null,
+        "referenceValue": 0,
+        "type": {
+          "name": "UnitPriceMeasurement",
+          "kind": "OBJECT",
+          "fieldBaseTypes": {
+            "measuredType": "UnitPriceMeasurementMeasuredType",
+            "quantityUnit": "UnitPriceMeasurementMeasuredUnit",
+            "quantityValue": "Float",
+            "referenceUnit": "UnitPriceMeasurementMeasuredUnit",
+            "referenceValue": "Int"
+          },
+          "implementsNode": false
+        }
+      },
+      "type": {
+        "name": "ProductVariant",
+        "kind": "OBJECT",
+        "fieldBaseTypes": {
+          "availableForSale": "Boolean",
+          "compareAtPrice": "MoneyV2",
+          "id": "ID",
+          "image": "Image",
+          "price": "MoneyV2",
+          "product": "Product",
+          "selectedOptions": "SelectedOption",
+          "sku": "String",
+          "title": "String",
+          "unitPrice": "MoneyV2",
+          "unitPriceMeasurement": "UnitPriceMeasurement",
+          "weight": "Float"
+        },
+        "implementsNode": true
+      },
+      "hasNextPage": false,
+      "hasPreviousPage": {
+        "value": true
+      },
+      "variableValues": {
+        "id": "gid://shopify/Product/8959693062451"
+      }
     }
+  ],
+  "type": {
+    "name": "Product",
+    "kind": "OBJECT",
+    "fieldBaseTypes": {
+      "availableForSale": "Boolean",
+      "createdAt": "DateTime",
+      "description": "String",
+      "descriptionHtml": "HTML",
+      "handle": "String",
+      "id": "ID",
+      "images": "ImageConnection",
+      "onlineStoreUrl": "URL",
+      "options": "ProductOption",
+      "productType": "String",
+      "publishedAt": "DateTime",
+      "title": "String",
+      "updatedAt": "DateTime",
+      "variants": "ProductVariantConnection",
+      "vendor": "String"
+    },
+    "implementsNode": true
   }
-]
+}
