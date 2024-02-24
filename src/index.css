@@ -3,6 +3,10 @@
     --main: #fff;
     --accent: #db2b6c;
 
+    /*--background: #fff;*/
+    /*--main: #000;*/
+    /*--accent: #db2b6c;*/
+
 }
 
 @font-face {
@@ -111,6 +115,10 @@ textarea {
 
     cursor: text;
 
+}
+
+svg path {
+    fill: var(--main);
 }
 
 input:focus, textarea:focus {
