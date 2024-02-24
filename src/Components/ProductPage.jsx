@@ -23,6 +23,22 @@ const ProductPage = () => {
             })
     }, [client, id])
 
+    const cycleImage = (direction) => {
+        if (direction === 'left') {
+            if (currentImage === 0) {
+                setCurrentImage(product.images.length - 1)
+            } else {
+                setCurrentImage(currentImage - 1)
+            }
+        } else if (direction === 'right') {
+            if (currentImage === product.images.length - 1) {
+                setCurrentImage(0)
+            } else {
+                setCurrentImage(currentImage + 1)
+            }
+        }
+    }
+
     if (!product) return null
 
     return (
@@ -38,6 +54,12 @@ const ProductPage = () => {
                         />
                     ))}
                 </div>
+                <span
+                    onClick={() => cycleImage('left')}
+                    className={'left-arrow'}
+                >
+                    {'<'}
+                </span>
                 <div className={'current-img-cont'}>
                     <img
                         className='current-img'
@@ -45,6 +67,12 @@ const ProductPage = () => {
                         alt={product.title}
                     />
                 </div>
+                <span
+                    onClick={() => cycleImage('right')}
+                    className={'right-arrow'}
+                >
+                    {'>'}
+                </span>
             </div>
             <div className='pp-shop-card'>
                 <h1>{product.title}</h1>
