@@ -108,42 +108,37 @@ function App() {
                     </Router>
                 </ShopContext.Provider>
             ) : (
-                <main>
-                    <div className='landing-page'>
-                        <div className={'lp-logo-cont'}>
-                            <img
-                                src={'/assets/3PLAYAA.png'}
-                                alt='3Playaa'
-                                className='landing-page-logo'
-                            />
-                        </div>
-                        <div className={'countdown'}>
-                            {timerComponents.length ? (
-                                timerComponents
-                            ) : (
-                                <span>Coming soon...</span>
-                            )}
-                        </div>
-                        <EmailSignUp />
-                        <button
-                            onClick={() => {
-                                const password = prompt('Enter store password')
-                                if (password === storePassword) {
-                                    localStorage.setItem(
-                                        'storePassword',
-                                        password
-                                    )
-                                    window.location.reload()
-                                }
-                            }}
-                            style={{
-                                marginTop: '20px',
-                            }}
-                        >
-                            View Store
-                        </button>
+                <div className='landing-page'>
+                    <div className={'lp-logo-cont'}>
+                        <img
+                            src={'/assets/3PLAYAA.png'}
+                            alt='3Playaa'
+                            className='landing-page-logo'
+                        />
                     </div>
-                </main>
+                    <div className={'countdown'}>
+                        {timerComponents.length ? (
+                            timerComponents
+                        ) : (
+                            <span>Coming soon...</span>
+                        )}
+                    </div>
+                    <EmailSignUp />
+                    <button
+                        onClick={() => {
+                            const password = prompt('Enter store password')
+                            if (password === storePassword) {
+                                localStorage.setItem('storePassword', password)
+                                window.location.reload()
+                            }
+                        }}
+                        style={{
+                            marginTop: '20px',
+                        }}
+                    >
+                        View Store
+                    </button>
+                </div>
             )}
         </>
     )
