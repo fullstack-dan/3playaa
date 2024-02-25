@@ -200,6 +200,15 @@ const ProductPage = () => {
                 >
                     {actionButton}
                 </button>
+                <h2
+                    style={{
+                        marginTop: '20px',
+                        textAlign: 'center',
+                    }}
+                >
+                    “If you don’t give a care what people think other than good
+                    about you, then this is home.”
+                </h2>
             </div>
         </div>
     )
