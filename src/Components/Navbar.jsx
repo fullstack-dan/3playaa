@@ -41,7 +41,7 @@ const Navbar = () => {
                             About
                         </Link>
                         <Link to='/contact' onClick={closeMenu}>
-                            Contact
+                            Contact Us
                         </Link>
                     </div>
                 </div>
