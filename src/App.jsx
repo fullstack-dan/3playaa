@@ -18,6 +18,7 @@ export const ShopContext = React.createContext()
 
 function App() {
     const [timeLeft, setTimeLeft] = React.useState(calculateTimeLeft())
+    const [allowAccess, setAllowAccess] = React.useState(false)
 
     React.useEffect(() => {
         const timer = setTimeout(() => {
@@ -87,9 +88,21 @@ function App() {
     const storePassword = import.meta.env.VITE_APP_STORE_PASSWORD
     const passwordAttempt = localStorage.getItem('storePassword')
 
+    React.useEffect(() => {
+        const lastAccessed = localStorage.getItem('lastAccessed')
+        const now = new Date()
+        const timeDifference = now - new Date(lastAccessed)
+
+        if (passwordAttempt === storePassword && timeDifference < 600000) {
+            setAllowAccess(true)
+        } else {
+            setAllowAccess(false)
+        }
+    }, [])
+
     return (
         <>
-            {passwordAttempt === storePassword ? (
+            {allowAccess ? (
                 <ShopContext.Provider value={{ client, checkoutId }}>
                     <Router>
                         <Navbar />
@@ -129,6 +142,8 @@ function App() {
                             const password = prompt('Enter store password')
                             if (password === storePassword) {
                                 localStorage.setItem('storePassword', password)
+                                localStorage.setItem('lastAccessed', new Date())
+                                setAllowAccess(true)
                                 window.location.reload()
                             }
                         }}

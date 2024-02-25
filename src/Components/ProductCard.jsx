@@ -1,4 +1,5 @@
 import './ProductCard.css'
+import { Link } from 'react-router-dom'
 
 const ProductCard = ({ product }) => {
     const { images, title, variants } = product
@@ -23,13 +24,13 @@ const ProductCard = ({ product }) => {
 
     return (
         <div className='product-card'>
-            <a href={`/products/${productId}`}>
+            <Link to={`/products/${productId}`}>
                 <img src={image} alt={title} />
-            </a>
+            </Link>
             <div className={'product-text-info'}>
-                <a href={`/products/${productId}`}>
+                <Link to={`/products/${productId}`}>
                     <h3>{title}</h3>
-                </a>
+                </Link>
                 <p>
                     ${price}{' '}
                     {compareAtPrice && (
