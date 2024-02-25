@@ -17,6 +17,55 @@ import EmailSignUp from './Components/EmailSignUp.jsx'
 export const ShopContext = React.createContext()
 
 function App() {
+    const [timeLeft, setTimeLeft] = React.useState(calculateTimeLeft())
+
+    React.useEffect(() => {
+        const timer = setTimeout(() => {
+            setTimeLeft(calculateTimeLeft())
+        }, 1000)
+        return () => clearTimeout(timer)
+    })
+
+    function calculateTimeLeft() {
+        let year = new Date().getFullYear()
+        const difference =
+            +new Date(`02/29/${year >= 2024 ? year : 2024}`) - +new Date()
+        let timeLeft = {}
+
+        if (difference > 0) {
+            timeLeft = {
+                days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                minutes: Math.floor((difference / 1000 / 60) % 60),
+                seconds: Math.floor((difference / 1000) % 60),
+            }
+        }
+
+        for (let key in timeLeft) {
+            if (timeLeft[key] === 0) {
+                timeLeft[key] = '0'
+            }
+        }
+
+        return timeLeft
+    }
+
+    const timerComponents = []
+
+    Object.keys(timeLeft).forEach((interval) => {
+        if (!timeLeft[interval]) {
+            return
+        }
+
+        timerComponents.push(
+            <div key={interval}>
+                <span>{timeLeft[interval]}</span>
+                <span>{interval}</span>
+            </div>
+        )
+    })
+
+    // Main store components
     const client = useMemo(
         () =>
             Client.buildClient({
@@ -35,22 +84,67 @@ function App() {
 
     const checkoutId = localStorage.getItem('checkoutId')
 
+    const storePassword = import.meta.env.VITE_APP_STORE_PASSWORD
+    const passwordAttempt = localStorage.getItem('storePassword')
+
     return (
         <>
-            <ShopContext.Provider value={{ client, checkoutId }}>
-                <Router>
-                    <Navbar />
-                    <Routes>
-                        <Route path='/' element={<HomePage />} />
-                        <Route path='/shop' element={<ShopPage />} />
-                        <Route path='/about' element={<AboutPage />} />
-                        <Route path='/contact' element={<ContactPage />} />
-                        <Route path='/products/:id' element={<ProductPage />} />
-                        <Route path='/cart' element={<CartPage />} />
-                    </Routes>
-                    <Footer />
-                </Router>
-            </ShopContext.Provider>
+            {passwordAttempt === storePassword ? (
+                <ShopContext.Provider value={{ client, checkoutId }}>
+                    <Router>
+                        <Navbar />
+                        <Routes>
+                            <Route path='/' element={<HomePage />} />
+                            <Route path='/shop' element={<ShopPage />} />
+                            <Route path='/about' element={<AboutPage />} />
+                            <Route path='/contact' element={<ContactPage />} />
+                            <Route
+                                path='/products/:id'
+                                element={<ProductPage />}
+                            />
+                            <Route path='/cart' element={<CartPage />} />
+                        </Routes>
+                        <Footer />
+                    </Router>
+                </ShopContext.Provider>
+            ) : (
+                <main>
+                    <div className='landing-page'>
+                        <div className={'lp-logo-cont'}>
+                            <img
+                                src={'/assets/3PLAYAA.png'}
+                                alt='3Playaa'
+                                className='landing-page-logo'
+                            />
+                        </div>
+                        <div className={'countdown'}>
+                            {timerComponents.length ? (
+                                timerComponents
+                            ) : (
+                                <span>Coming soon...</span>
+                            )}
+                        </div>
+                        <EmailSignUp />
+                        <button
+                            onClick={() => {
+                                const password = prompt('Enter store password')
+                                if (password === storePassword) {
+                                    localStorage.setItem(
+                                        'storePassword',
+                                        password
+                                    )
+                                    window.location.reload()
+                                }
+                            }}
+                            style={{
+                                marginTop: '20px',
+                            }}
+                        >
+                            View Store
+                        </button>
+                    </div>
+                </main>
+            )}
         </>
     )
 }
