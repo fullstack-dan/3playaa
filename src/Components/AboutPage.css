@@ -1,12 +1,14 @@
 .about-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
 
-    /*height: 100vh;*/
+    height: max(100vh, max-content);
 
     padding: 2rem;
+
+    gap: 2rem;
 }
 
 .about-img-cont {
@@ -15,7 +17,7 @@
     justify-content: center;
     align-items: center;
 
-    width: 30rem;
+    max-width: 30rem;
 }
 
 .about-img-cont img {
