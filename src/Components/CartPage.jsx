@@ -2,6 +2,7 @@ import React from 'react'
 import './CartPage.css'
 import { ShopContext } from '../App.jsx'
 import TrashIcon from './Icons/TrashIcon.jsx'
+import { Link } from 'react-router-dom'
 
 const CartPage = () => {
     const { client, checkoutId } = React.useContext(ShopContext)
@@ -52,6 +53,14 @@ const CartPage = () => {
         <div className={'cart-page'}>
             <div className='cart-items'>
                 <h1>Your Cart</h1>
+                {lineItems.length === 0 && (
+                    <h3>
+                        Nothing here yet...{' '}
+                        <Link to={'/shop'} className={'custom-link'}>
+                            let's change that.
+                        </Link>
+                    </h3>
+                )}
                 {lineItems.map((item) => (
                     <div key={item.id} className='cart-item'>
                         <img src={item.variant.image.src} alt={item.title} />

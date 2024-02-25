@@ -2,6 +2,7 @@ import React from 'react'
 import './Footer.css'
 
 import SibApiV3Sdk from 'sib-api-v3-sdk'
+import IGIcon from './Icons/IGIcon.jsx'
 
 let defaultClient = SibApiV3Sdk.ApiClient.instance
 
@@ -10,7 +11,7 @@ apiKey.apiKey = import.meta.env.VITE_APP_EMAIL_API_KEY
 
 const Footer = () => {
     const [email, setEmail] = React.useState('')
-    const [info, setInfo] = React.useState('Sign up for our newsletter:')
+    const [info, setInfo] = React.useState('Sign up for news from 3Playaa:')
 
     const validateEmail = (email) => {
         const re = /\S+@\S+\.\S+/
@@ -27,7 +28,6 @@ const Footer = () => {
         createContact.email = email
         apiInstance.createContact(createContact).then(
             function (data) {
-                console.log('API called successfully. Returned data: ' + data)
                 setInfo('See you soon!')
                 setEmail('')
             },
@@ -40,8 +40,26 @@ const Footer = () => {
 
     return (
         <footer>
-            <div>
+            <div className={'footer-text'}>
                 <p>Copyright &copy; 2024, 3Playaa</p>
+                Site by{' '}
+                <a
+                    href={'https://www.fullstackdan.dev'}
+                    target={'_blank'}
+                    className={'custom-link'}
+                >
+                    fullstackdan
+                </a>
+            </div>
+            <div>
+                <div className='social-icons'>
+                    <a
+                        href='https://www.instagram.com/3playaa/'
+                        target='_blank'
+                    >
+                        <IGIcon />
+                    </a>
+                </div>
             </div>
             <form className={'footer-email-form'}>
                 <p>{info}</p>

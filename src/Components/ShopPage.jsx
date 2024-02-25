@@ -15,6 +15,7 @@ const ShopPage = () => {
 
     return (
         <div className={'shop-page'}>
+            <h1>No Need To Pretend Collection</h1>
             <ProductGallery products={products} />
         </div>
     )
