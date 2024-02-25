@@ -2,6 +2,7 @@ import './Navbar.css'
 import logo from '../assets/3PLAYAA_SMALL.png'
 import { Link } from 'react-router-dom'
 import CartIcon from './Icons/CartIcon.jsx'
+import MenuIcon from './Icons/MenuIcon.jsx'
 
 const Navbar = () => {
     const showMenu = () => {
@@ -30,7 +31,7 @@ const Navbar = () => {
             <div className={'nav-links'}>
                 <div className='nav-menu'>
                     <a className='hamburger-icon' onClick={showMenu}>
-                        M
+                        <MenuIcon />
                     </a>
                     <div id='nav-links'>
                         <Link to='/shop' onClick={closeMenu}>

@@ -102,59 +102,56 @@ function App() {
 
     return (
         <>
-            {allowAccess ? (
-                <ShopContext.Provider value={{ client, checkoutId }}>
-                    <Router>
-                        <Navbar />
-                        <Routes>
-                            <Route path='/' element={<HomePage />} />
-                            <Route path='/shop' element={<ShopPage />} />
-                            <Route path='/about' element={<AboutPage />} />
-                            <Route path='/contact' element={<ContactPage />} />
-                            <Route
-                                path='/products/:id'
-                                element={<ProductPage />}
-                            />
-                            <Route path='/cart' element={<CartPage />} />
-                        </Routes>
-                        <Footer />
-                    </Router>
-                </ShopContext.Provider>
-            ) : (
-                <div className='landing-page'>
-                    <div className={'lp-logo-cont'}>
-                        <img
-                            src={'/assets/3PLAYAA.png'}
-                            alt='3Playaa'
-                            className='landing-page-logo'
-                        />
-                    </div>
-                    <div className={'countdown'}>
-                        {timerComponents.length ? (
-                            timerComponents
-                        ) : (
-                            <span>Coming soon...</span>
-                        )}
-                    </div>
-                    <EmailSignUp />
-                    <button
-                        onClick={() => {
-                            const password = prompt('Enter store password')
-                            if (password === storePassword) {
-                                localStorage.setItem('storePassword', password)
-                                localStorage.setItem('lastAccessed', new Date())
-                                setAllowAccess(true)
-                                window.location.reload()
-                            }
-                        }}
-                        style={{
-                            marginTop: '20px',
-                        }}
-                    >
-                        View Store
-                    </button>
-                </div>
-            )}
+            {/*{allowAccess ? (*/}
+            <ShopContext.Provider value={{ client, checkoutId }}>
+                <Router>
+                    <Navbar />
+                    <Routes>
+                        <Route path='/' element={<HomePage />} />
+                        <Route path='/shop' element={<ShopPage />} />
+                        <Route path='/about' element={<AboutPage />} />
+                        <Route path='/contact' element={<ContactPage />} />
+                        <Route path='/products/:id' element={<ProductPage />} />
+                        <Route path='/cart' element={<CartPage />} />
+                    </Routes>
+                    <Footer />
+                </Router>
+            </ShopContext.Provider>
+            {/*// ) : (*/}
+            {/*    <div className='landing-page'>*/}
+            {/*        <div className={'lp-logo-cont'}>*/}
+            {/*            <img*/}
+            {/*                src={'/assets/3PLAYAA.png'}*/}
+            {/*                alt='3Playaa'*/}
+            {/*                className='landing-page-logo'*/}
+            {/*            />*/}
+            {/*        </div>*/}
+            {/*        <div className={'countdown'}>*/}
+            {/*            {timerComponents.length ? (*/}
+            {/*                timerComponents*/}
+            {/*            ) : (*/}
+            {/*                <span>Coming soon...</span>*/}
+            {/*            )}*/}
+            {/*        </div>*/}
+            {/*        <EmailSignUp />*/}
+            {/*        <button*/}
+            {/*            onClick={() => {*/}
+            {/*                const password = prompt('Enter store password')*/}
+            {/*                if (password === storePassword) {*/}
+            {/*                    localStorage.setItem('storePassword', password)*/}
+            {/*                    localStorage.setItem('lastAccessed', new Date())*/}
+            {/*                    setAllowAccess(true)*/}
+            {/*                    window.location.reload()*/}
+            {/*                }*/}
+            {/*            }}*/}
+            {/*            style={{*/}
+            {/*                marginTop: '20px',*/}
+            {/*            }}*/}
+            {/*        >*/}
+            {/*            View Store*/}
+            {/*        </button>*/}
+            {/*    </div>*/}
+            {/*)}*/}
         </>
     )
 }

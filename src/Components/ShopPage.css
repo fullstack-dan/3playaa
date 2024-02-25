@@ -7,3 +7,8 @@
     height: max(100vh, 100%);
 
 }
+
+.shop-page h1 {
+    font-family: Retaliation, sans-serif;
+    margin-bottom: 2rem;
+}
