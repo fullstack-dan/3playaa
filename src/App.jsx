@@ -70,7 +70,7 @@ function App() {
     const client = useMemo(
         () =>
             Client.buildClient({
-                domain: '6bb8b0-da.myshopify.com',
+                domain: 'shop.justbeyours3lf.com',
                 storefrontAccessToken: import.meta.env
                     .VITE_APP_STOREFRONT_ACCESS_TOKEN,
             }),
