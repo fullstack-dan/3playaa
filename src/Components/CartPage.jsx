@@ -120,6 +120,7 @@ const CartPage = () => {
                 <button
                     className='checkout-button'
                     onClick={() => {
+                        console.log(checkout.webUrl)
                         window.open(checkout.webUrl)
                     }}
                 >
