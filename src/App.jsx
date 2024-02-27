@@ -34,7 +34,9 @@ function App() {
     const [timeLeft, setTimeLeft] = React.useState(calculateTimeLeft())
     const [allowAccess, setAllowAccess] = React.useState(false)
 
-    checkAndUpdateLocalStorage()
+    React.useEffect(() => {
+        checkAndUpdateLocalStorage()
+    }, [])
 
     React.useEffect(() => {
         const timer = setTimeout(() => {
