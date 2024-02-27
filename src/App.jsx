@@ -16,9 +16,25 @@ import EmailSignUp from './Components/EmailSignUp.jsx'
 
 export const ShopContext = React.createContext()
 
+const currentVersion = import.meta.env.VITE_APP_VERSION
+
+function checkAndUpdateLocalStorage() {
+    const browserVersion = JSON.parse(localStorage.getItem('currentVersion'))
+
+    if (browserVersion && browserVersion === currentVersion) {
+        console.log('localStorage data is up-to-date.')
+    } else {
+        console.log('Updating or resetting localStorage data.')
+        localStorage.clear()
+        localStorage.setItem('currentVersion', JSON.stringify(currentVersion))
+    }
+}
+
 function App() {
     const [timeLeft, setTimeLeft] = React.useState(calculateTimeLeft())
     const [allowAccess, setAllowAccess] = React.useState(false)
+
+    checkAndUpdateLocalStorage()
 
     React.useEffect(() => {
         const timer = setTimeout(() => {
