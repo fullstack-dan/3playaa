@@ -54,7 +54,7 @@ const Footer = () => {
             <div>
                 <div className='social-icons'>
                     <a
-                        href='https://www.instagram.com/3playaa/'
+                        href='https://www.instagram.com/justbe.yours3lf'
                         target='_blank'
                     >
                         <IGIcon />
