@@ -1,16 +1,19 @@
 .email-sign-up {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
+    /*height: 100vh;*/
 
     text-align: center;
     gap: 1rem;
+    padding: 2rem;
 }
 
 .email-sign-up form {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
@@ -19,3 +22,10 @@
 .email-sign-up h1 {
     font-size: 2rem;
 }
+
+.view-store-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+ }

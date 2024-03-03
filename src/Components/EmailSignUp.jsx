@@ -8,36 +8,90 @@ let defaultClient = SibApiV3Sdk.ApiClient.instance
 
 let apiKey = defaultClient.authentications['api-key']
 apiKey.apiKey = import.meta.env.VITE_APP_EMAIL_API_KEY
+const storePassword = import.meta.env.VITE_APP_STORE_PASSWORD
 
 const EmailSignUp = () => {
+    const [name, setName] = React.useState('')
     const [email, setEmail] = React.useState('')
-    const [info, setInfo] = React.useState('Be the first to know:')
+    const [phone, setPhone] = React.useState('')
+    const [phoneInputVal, setPhoneInputVal] = React.useState('')
+    const [info, setInfo] = React.useState(
+        "We're working on something special. Be the first to know when it's ready."
+    )
+    const [displayStorePassword, setDisplayStorePassword] =
+        React.useState(false)
+    const [storePasswordInput, setStorePasswordInput] = React.useState('')
 
     const validateEmail = (email) => {
         const re = /\S+@\S+\.\S+/
         return re.test(email)
     }
 
+    const validatePhone = (phone) => {
+        const re = /^\d{10}$/
+        return re.test(phone)
+    }
+
+    const fnSetPhoneInputVal = (val) => {
+        if (val.length === 10 && validatePhone(val)) {
+            setPhone(val)
+            setPhoneInputVal(
+                `(${val.slice(0, 3)}) ${val.slice(3, 6)}-${val.slice(6)}`
+            )
+        } else {
+            setPhone('')
+            setPhoneInputVal(val.replace(/\D/g, ''))
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
+        if (name === '' || email === '' || phone === '') {
+            setInfo('Please enter all values.')
+            return
+        }
         if (!validateEmail(email)) {
             setInfo('Please enter a valid email address.')
             return
         }
+        if (!validatePhone(phone)) {
+            setInfo('Please enter a valid phone number.')
+            return
+        }
+        setInfo('One second...')
         let apiInstance = new SibApiV3Sdk.ContactsApi()
         let createContact = new SibApiV3Sdk.CreateContact() // CreateContact | Values to create a contact
         createContact.email = email
+        createContact.attributes = {
+            FIRSTNAME: name,
+            SMS: `+1${phone}`,
+        }
+        console.log(createContact)
         apiInstance.createContact(createContact).then(
             function (data) {
                 console.log('API called successfully. Returned data: ' + data)
                 setInfo("Thanks for signing up! We'll see you soon.")
                 setEmail('')
+                setName('')
+                setPhone('')
+                setPhoneInputVal('')
             },
             function (error) {
-                setInfo('There was an error. Please try again.')
+                setInfo('Something went wrong. Please try again later!')
                 console.error(error)
             }
         )
+    }
+
+    const checkStorePassword = (password) => {
+        if (password !== storePassword) {
+            setInfo('Incorrect password.')
+            return
+        }
+        localStorage.setItem('allowAccess', 'true')
+        localStorage.setItem('lastAccess', new Date().toString())
+        setDisplayStorePassword(false)
+        window.location.href = '/'
     }
 
     return (
@@ -45,26 +99,46 @@ const EmailSignUp = () => {
             <h1>{info}</h1>
             <form>
                 <input
+                    type='text'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder='Name'
+                />
+                <input
                     type='email'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder='Email Address'
                 />
+                <input
+                    type='tel'
+                    value={phoneInputVal}
+                    onChange={(e) => fnSetPhoneInputVal(e.target.value)}
+                    placeholder='Phone Number'
+                />
                 <button onClick={handleSubmit}>Sign Up</button>
             </form>
-            <p>
-                Secure privileged access to pre-launch items 72 hours before our
-                public release. These exclusive offerings will be off-limits
-                during the public launch.
+            <p
+                onClick={() => setDisplayStorePassword(!displayStorePassword)}
+                className={'custom-link'}
+            >
+                View Store
             </p>
-            <p>
-                By submitting this form and signing up for emails, you consent
-                to receive marketing email messages (e.g. promos, cart
-                reminders) from 3Playaa at the email provided. Consent is not a
-                condition of purchase. Msg frequency varies. Unsubscribe at any
-                time by replying STOP or clicking the unsubscribe link (where
-                available).
-            </p>
+            {displayStorePassword && (
+                <div className='view-store-form'>
+                    <input
+                        type='password'
+                        placeholder='Store Password'
+                        value={storePasswordInput}
+                        onChange={(e) => setStorePasswordInput(e.target.value)}
+                    />
+                    <button
+                        onClick={() => checkStorePassword(storePasswordInput)}
+                    >
+                        Submit
+                    </button>
+                </div>
+            )}
         </div>
     )
 }

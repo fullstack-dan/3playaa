@@ -126,6 +126,7 @@ input:focus, textarea:focus {
 }
 
 .custom-link {
+    cursor: pointer;
     color: var(--accent);
     text-decoration: underline;
 }
