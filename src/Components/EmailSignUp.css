@@ -19,8 +19,8 @@
     gap: 1rem;
 }
 
-.email-sign-up h1 {
-    font-size: 2rem;
+.email-sign-up h3 {
+    max-width: 40rem;
 }
 
 .view-store-form {

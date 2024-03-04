@@ -16,7 +16,7 @@ const EmailSignUp = () => {
     const [phone, setPhone] = React.useState('')
     const [phoneInputVal, setPhoneInputVal] = React.useState('')
     const [info, setInfo] = React.useState(
-        "We're working on something special. Be the first to know when it's ready."
+        'Why did you click this link ? Maybe something caught your attention. Maybe you have great tastes. Most likely you know quality when you see it. I don’t know exactly; but you can leave your contact information to get added to our privileged access list, featuring special promos, discounts and preorder access. Join us at 3Playaa; find out what it means to Be Yourself. 💘'
     )
     const [displayStorePassword, setDisplayStorePassword] =
         React.useState(false)
@@ -96,7 +96,7 @@ const EmailSignUp = () => {
 
     return (
         <div className={'email-sign-up'}>
-            <h1>{info}</h1>
+            <h3>{info}</h3>
             <form>
                 <input
                     type='text'
