@@ -19,6 +19,11 @@
 
 @media (max-width: 600px) {
     .product-gallery {
-        grid-template-columns: repeat(1, 1fr);
+        display: flex;
+        gap: 20rem;
+
+        overflow-x: auto;
+        white-space: nowrap;
+        max-width: fit-content;
     }
 }
