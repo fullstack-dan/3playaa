@@ -40,9 +40,10 @@ const ProductGallery = ({ products }) => {
 
     useEffect(() => {
         if (galleryRef.current) {
-            galleryRef.current.scrollLeft = 0
+            const node = galleryRef.current
+            node.scrollLeft = node.children[currentIndex].offsetLeft
         }
-    }, [])
+    }, [currentIndex])
 
     return (
         <div className='product-gallery' ref={galleryRef}>

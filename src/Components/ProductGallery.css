@@ -97,4 +97,8 @@
         scroll-snap-align: start;
         flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
     }
+
+    .product-gallery > div {
+        max-width: 100%; /* Ensures that each product card does not exceed the viewport width */
+    }
 }
