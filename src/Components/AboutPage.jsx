@@ -63,7 +63,7 @@ const AboutPage = () => {
                 </p>
             </div>
             <h1>Shop the collection</h1>
-            <ProductGallery products={products} />
+            {products.length > 0 && <ProductGallery products={products} />}
         </div>
     )
 }
