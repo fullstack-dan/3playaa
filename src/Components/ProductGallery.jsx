@@ -1,6 +1,6 @@
 import './ProductGallery.css'
 import ProductCard from './ProductCard.jsx'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function useWindowSize() {
     const [windowSize, setWindowSize] = useState({
@@ -36,31 +36,20 @@ const ProductGallery = ({ products }) => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length)
     }
 
+    const galleryRef = useRef(null)
+
+    useEffect(() => {
+        if (galleryRef.current) {
+            const node = galleryRef.current
+            node.scrollLeft = node.children[currentIndex].offsetLeft
+        }
+    }, [currentIndex])
+
     return (
-        <div className='gallery-container'>
-            {isMobile ? (
-                <>
-                    <div
-                        className='navigation-arrow left'
-                        onClick={goToPrevious}
-                    >
-                        &lt;
-                    </div>
-                    <ProductCard
-                        product={products[currentIndex]}
-                        key={products[currentIndex].id}
-                    />
-                    <div className='navigation-arrow right' onClick={goToNext}>
-                        &gt;
-                    </div>
-                </>
-            ) : (
-                <div className='product-gallery'>
-                    {products.map((product) => (
-                        <ProductCard product={product} key={product.id} />
-                    ))}
-                </div>
-            )}
+        <div className='product-gallery' ref={galleryRef}>
+            {products.map((product) => (
+                <ProductCard product={product} key={product.id} />
+            ))}
         </div>
     )
 }
