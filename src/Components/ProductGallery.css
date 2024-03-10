@@ -70,15 +70,6 @@
 /*    }*/
 /*}*/
 
-/* General Styles for Gallery Container */
-.gallery-container {
-    position: relative;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    overflow-x: hidden; /* Prevents horizontal scrollbar at the container level */
-}
-
 /* Styles for Product Cards in a Grid Layout */
 .product-gallery {
     display: grid;
@@ -103,7 +94,7 @@
         display: none; /* Optional: Hides scrollbar for WebKit browsers */
     }
     .product-gallery > div {
-        scroll-snap-align: start; /* Optional: Ensures that scrolling snaps to each product card */
+        scroll-snap-align: start;
         flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
     }
 }

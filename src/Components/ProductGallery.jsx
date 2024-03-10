@@ -1,6 +1,6 @@
 import './ProductGallery.css'
 import ProductCard from './ProductCard.jsx'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function useWindowSize() {
     const [windowSize, setWindowSize] = useState({
@@ -36,13 +36,19 @@ const ProductGallery = ({ products }) => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length)
     }
 
+    const galleryRef = useRef(null)
+
+    useEffect(() => {
+        if (galleryRef.current) {
+            galleryRef.current.scrollLeft = 0
+        }
+    }, [])
+
     return (
-        <div className='gallery-container'>
-            <div className='product-gallery'>
-                {products.map((product) => (
-                    <ProductCard product={product} key={product.id} />
-                ))}
-            </div>
+        <div className='product-gallery' ref={galleryRef}>
+            {products.map((product) => (
+                <ProductCard product={product} key={product.id} />
+            ))}
         </div>
     )
 }
