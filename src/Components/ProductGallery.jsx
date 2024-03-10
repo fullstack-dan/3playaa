@@ -38,29 +38,11 @@ const ProductGallery = ({ products }) => {
 
     return (
         <div className='gallery-container'>
-            {isMobile ? (
-                <>
-                    <div
-                        className='navigation-arrow left'
-                        onClick={goToPrevious}
-                    >
-                        &lt;
-                    </div>
-                    <ProductCard
-                        product={products[currentIndex]}
-                        key={products[currentIndex].id}
-                    />
-                    <div className='navigation-arrow right' onClick={goToNext}>
-                        &gt;
-                    </div>
-                </>
-            ) : (
-                <div className='product-gallery'>
-                    {products.map((product) => (
-                        <ProductCard product={product} key={product.id} />
-                    ))}
-                </div>
-            )}
+            <div className='product-gallery'>
+                {products.map((product) => (
+                    <ProductCard product={product} key={product.id} />
+                ))}
+            </div>
         </div>
     )
 }

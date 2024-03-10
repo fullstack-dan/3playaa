@@ -1,71 +1,109 @@
+/*.gallery-container {*/
+/*    position: relative;*/
+/*    padding: 2rem;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+
+/*.product-gallery {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(3, minmax(18rem, 1fr));*/
+/*    justify-content: center;*/
+/*    gap: 4rem;*/
+/*    max-width: fit-content;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.navigation-arrow {*/
+/*    cursor: pointer;*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*    font-size: 2rem;*/
+/*    color: #333;*/
+/*    z-index: 10;*/
+/*    display: none;*/
+/*}*/
+
+/*.navigation-arrow.left {*/
+/*    left: 0;*/
+/*}*/
+
+/*.navigation-arrow.right {*/
+/*    right: 0;*/
+/*}*/
+
+/*@media (max-width: 600px) {*/
+/*    .product-gallery {*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*        justify-content: center;*/
+/*        align-items: center;*/
+/*        gap: 1rem;*/
+/*    }*/
+
+/*    .navigation-arrow {*/
+/*        height: 2rem;*/
+/*        width: 2rem;*/
+/*        font-size: 3rem;*/
+/*        border-radius: 50%;*/
+
+/*        display: flex;*/
+/*        justify-content: center;*/
+/*        align-items: center;*/
+/*        transition: all 0.3s ease;*/
+
+/*        user-select: none;*/
+/*    }*/
+
+/*    .navigation-arrow:hover {*/
+/*        cursor: pointer;*/
+/*        !*border: 2px solid var(--accent);*!*/
+/*        color: var(--accent);*/
+/*    }*/
+
+/*    .navigation-arrow:active {*/
+/*        transform: scale(0.9);*/
+/*    }*/
+/*}*/
+
+/* General Styles for Gallery Container */
 .gallery-container {
     position: relative;
     padding: 2rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    overflow-x: hidden; /* Prevents horizontal scrollbar at the container level */
 }
 
-
+/* Styles for Product Cards in a Grid Layout */
 .product-gallery {
     display: grid;
     grid-template-columns: repeat(3, minmax(18rem, 1fr));
     justify-content: center;
     gap: 4rem;
     max-width: fit-content;
-    width: 100%;
-}
-
-.navigation-arrow {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: #333;
-    z-index: 10;
-    display: none;
-}
-
-.navigation-arrow.left {
-    left: 0;
-}
-
-.navigation-arrow.right {
-    right: 0;
+    width: 100%; /* Ensures full container width is used */
 }
 
 @media (max-width: 600px) {
     .product-gallery {
+        /* Enable horizontal scrolling */
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden; /* Prevent vertical scrolling */
         gap: 1rem;
+        scroll-snap-type: x mandatory; /* Optional: Enhances the scrolling experience */
     }
-
-    .navigation-arrow {
-        height: 2rem;
-        width: 2rem;
-        font-size: 3rem;
-        border-radius: 50%;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.3s ease;
-
-        user-select: none;
+    .product-gallery::-webkit-scrollbar {
+        display: none; /* Optional: Hides scrollbar for WebKit browsers */
     }
-
-    .navigation-arrow:hover {
-        cursor: pointer;
-        /*border: 2px solid var(--accent);*/
-        color: var(--accent);
-    }
-
-    .navigation-arrow:active {
-        transform: scale(0.9);
+    .product-gallery > div {
+        scroll-snap-align: start; /* Optional: Ensures that scrolling snaps to each product card */
+        flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
     }
 }
