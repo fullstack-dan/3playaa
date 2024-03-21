@@ -1,7 +1,7 @@
 import './NNTPGraphic.css'
 import { useEffect } from 'react'
 
-const NONEEDSRC = '/assets/NONEED/BW_NN_'
+const NONEEDSRC = '/assets/NONEED/NN_'
 
 const NNTPGraphic = () => {
     useEffect(() => {
