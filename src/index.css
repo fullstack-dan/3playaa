@@ -1,11 +1,11 @@
 :root {
-    --background: #000;
-    --main: #fff;
-    --accent: #db2b6c;
-
-    /*--background: #fff;*/
-    /*--main: #000;*/
+    /*--background: #000;*/
+    /*--main: #fff;*/
     /*--accent: #db2b6c;*/
+
+    --background: #fff;
+    --main: #000;
+    --accent: #db2b6c;
 
 }
 
