@@ -12,10 +12,42 @@ const HomePage = () => {
     const [products, setProducts] = React.useState([])
 
     React.useEffect(() => {
-        client.product.fetchAll().then((products) => {
-            setProducts(products)
-        })
-    }, [client])
+        setProducts([
+            {
+                id: 'gid://shopify/Product/123456',
+                title: '3Playaa Hoodie',
+                images: [{ src: 'hoodie.webp' }],
+                variants: [
+                    {
+                        price: { amount: 49.99 },
+                        compareAtPrice: { amount: 69.99 },
+                    },
+                ],
+            },
+            {
+                id: 'gid://shopify/Product/123457',
+                title: '3Playaa Sweatpants',
+                images: [{ src: 'pants.webp' }],
+                variants: [
+                    {
+                        price: { amount: 49.99 },
+                        compareAtPrice: { amount: 69.99 },
+                    },
+                ],
+            },
+            {
+                id: 'gid://shopify/Product/123458',
+                title: '3Playaa Full Set',
+                images: [{ src: 'set.webp' }],
+                variants: [
+                    {
+                        price: { amount: 99.99 },
+                        compareAtPrice: { amount: 139.99 },
+                    },
+                ],
+            },
+        ])
+    }, [])
 
     return (
         <div className={'home-page'}>

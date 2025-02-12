@@ -1,78 +1,110 @@
-import React from 'react'
-
-import './ProductPage.css'
-
-import { ShopContext } from '../App.jsx'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import './ProductPage.css'
+import { CartContext } from '../Components/CartContext.jsx'
+
+const exampleProducts = [
+    {
+        id: '123456',
+        title: '3Playaa Hoodie',
+        description:
+            'The ultimate blend of style and comfort, the 3Playaa Hoodie is made from premium cotton and features a relaxed fit. Perfect for everyday wear or lounging in style.',
+        images: [
+            { id: '1', src: '../hoodie.webp' },
+            { id: '2', src: '../hoodie-back.webp' },
+        ],
+        variants: [
+            {
+                price: { amount: 49.99 },
+                compareAtPrice: { amount: 69.99 },
+            },
+        ],
+        options: [
+            {
+                id: 'size-option',
+                name: 'Size',
+                values: ['S', 'M', 'L', 'XL'],
+            },
+        ],
+    },
+    {
+        id: '123457',
+        title: '3Playaa Sweatpants',
+        description:
+            'Designed for movement and relaxation, the 3Playaa Sweatpants offer a tapered fit with premium stretch cotton. Elevate your casual wear game with these stylish joggers.',
+        images: [{ id: '1', src: '../pants.webp' }],
+        variants: [
+            {
+                price: { amount: 49.99 },
+                compareAtPrice: { amount: 69.99 },
+            },
+        ],
+        options: [
+            {
+                id: 'size-option',
+                name: 'Size',
+                values: ['S', 'M', 'L', 'XL'],
+            },
+        ],
+    },
+    {
+        id: '123458',
+        title: '3Playaa Full Set',
+        description:
+            'The ultimate streetwear combo. The 3Playaa Full Set includes our signature hoodie and sweatpants, perfectly matched for effortless style and comfort.',
+        images: [{ id: '1', src: '../set.webp' }],
+        variants: [
+            {
+                price: { amount: 99.99 },
+                compareAtPrice: { amount: 139.99 },
+            },
+        ],
+        options: [
+            {
+                id: 'size-option',
+                name: 'Size',
+                values: ['S', 'M', 'L', 'XL'],
+            },
+        ],
+    },
+]
 
 const ProductPage = () => {
     const { id } = useParams()
-    const { client, checkoutId } = React.useContext(ShopContext)
-    const [product, setProduct] = React.useState(null)
+    const { addToCart } = useContext(CartContext)
+    const [action, setAction] = React.useState('Add to Cart')
+    const product = exampleProducts.find((p) => p.id === id)
+
     const [currentImage, setCurrentImage] = React.useState(0)
     const [selectedOptions, setSelectedOptions] = React.useState({
         quantity: 1,
+        Size: product?.options[0]?.values[0] || '',
     })
-    const [actionButton, setActionButton] = React.useState('Add to Cart')
-    const [info, setInfo] = React.useState(null)
 
-    React.useEffect(() => {
-        const productID = 'gid://shopify/Product/' + id
-        client.product
-            .fetch(productID)
-            .then((product) => {
-                setProduct(product)
-                setSelectedOptions({
-                    ...selectedOptions,
-                    [product.options[0].name]:
-                        product.options[0].values[0].value,
-                })
-            })
-            .catch((error) => {
-                console.error('Error fetching product', error)
-            })
-    }, [client, id])
+    if (!product) return <p>Product not found.</p>
 
     const cycleImage = (direction) => {
-        if (direction === 'left') {
-            if (currentImage === 0) {
-                setCurrentImage(product.images.length - 1)
-            } else {
-                setCurrentImage(currentImage - 1)
-            }
-        } else if (direction === 'right') {
-            if (currentImage === product.images.length - 1) {
-                setCurrentImage(0)
-            } else {
-                setCurrentImage(currentImage + 1)
-            }
-        }
+        setCurrentImage((prev) =>
+            direction === 'left'
+                ? prev === 0
+                    ? product.images.length - 1
+                    : prev - 1
+                : prev === product.images.length - 1
+                  ? 0
+                  : prev + 1
+        )
     }
 
-    const addToCartOrGoToCart = () => {
-        if (actionButton === 'View Cart') {
-            window.location.href = '/cart'
+    const handleAddToCart = () => {
+        if (action !== 'Add to Cart') {
             return
         }
-        client.checkout.addLineItems(checkoutId, [
-            {
-                variantId: product.variants.find((variant) =>
-                    variant.selectedOptions.every(
-                        (option) =>
-                            option.value === selectedOptions[option.name]
-                    )
-                ).id,
-                quantity: selectedOptions.quantity,
-            },
-        ])
-        setInfo('Added to Cart')
-        setActionButton('View Cart')
+        addToCart(product, selectedOptions.quantity, selectedOptions)
+        setAction('Added!')
     }
 
-    if (!product) return null
-
     return (
-        <div className={'product-page'}>
+        <div className='product-page'>
             <div className='pp-imgs-cont'>
                 <div className='pp-imgs'>
                     {product.images.map((image, index) => (
@@ -84,13 +116,10 @@ const ProductPage = () => {
                         />
                     ))}
                 </div>
-                <span
-                    onClick={() => cycleImage('left')}
-                    className={'left-arrow'}
-                >
+                <span onClick={() => cycleImage('left')} className='left-arrow'>
                     {'<'}
                 </span>
-                <div className={'current-img-cont'}>
+                <div className='current-img-cont'>
                     <img
                         className='current-img'
                         src={product.images[currentImage].src}
@@ -99,16 +128,15 @@ const ProductPage = () => {
                 </div>
                 <span
                     onClick={() => cycleImage('right')}
-                    className={'right-arrow'}
+                    className='right-arrow'
                 >
                     {'>'}
                 </span>
             </div>
-            <div className={'product-info'}>
+            <div className='product-info'>
                 <div className='pp-shop-card'>
                     <h1>{product.title}</h1>
                     <p>
-                        $
                         {product.variants[0].price.amount.toLocaleString(
                             'en-US',
                             {
@@ -116,76 +144,70 @@ const ProductPage = () => {
                                 currency: 'USD',
                             }
                         )}{' '}
-                        <span className={'compare-at-price'}>
-                            {product.variants[0].compareAtPrice &&
-                                '$' +
-                                    product.variants[0].compareAtPrice.amount.toLocaleString(
-                                        'en-US',
-                                        {
-                                            style: 'currency',
-                                            currency: 'USD',
-                                        }
-                                    )}
-                        </span>
+                        {product.variants[0].compareAtPrice && (
+                            <span className='compare-at-price'>
+                                {' '}
+                                {product.variants[0].compareAtPrice.amount.toLocaleString(
+                                    'en-US',
+                                    { style: 'currency', currency: 'USD' }
+                                )}
+                            </span>
+                        )}
                     </p>
                     <p>{product.description}</p>
                 </div>
                 <div className='item-options'>
-                    {product.options.map(
-                        (option) =>
-                            option.name !== 'Title' && (
-                                <div key={option.id}>
-                                    <h3>{option.name}</h3>
-                                    <div className='product-option-values'>
-                                        {option.values.map((value) => (
-                                            <div
-                                                key={value}
-                                                className={
-                                                    'product-option-value ' +
-                                                    (selectedOptions[
-                                                        option.name
-                                                    ] === value.value
-                                                        ? 'selected-option'
-                                                        : '')
-                                                }
-                                                onClick={() =>
-                                                    setSelectedOptions({
-                                                        ...selectedOptions,
-                                                        [option.name]:
-                                                            value.value,
-                                                    })
-                                                }
-                                            >
-                                                {value.value}
-                                            </div>
-                                        ))}
+                    {product.options.map((option) => (
+                        <div key={option.id}>
+                            <h3>{option.name}</h3>
+                            <div className='product-option-values'>
+                                {option.values.map((value) => (
+                                    <div
+                                        key={value}
+                                        className={
+                                            'product-option-value ' +
+                                            (selectedOptions[option.name] ===
+                                            value
+                                                ? 'selected-option'
+                                                : '')
+                                        }
+                                        onClick={() =>
+                                            setSelectedOptions({
+                                                ...selectedOptions,
+                                                [option.name]: value,
+                                            })
+                                        }
+                                    >
+                                        {value}
                                     </div>
-                                </div>
-                            )
-                    )}
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                     <div>
-                        <h3>{'Count'}</h3>
+                        <h3>Quantity</h3>
                         <div className='product-quantity'>
                             <span
-                                onClick={() => {
-                                    if (selectedOptions.quantity > 1) {
-                                        setSelectedOptions({
-                                            ...selectedOptions,
-                                            quantity:
-                                                selectedOptions.quantity - 1,
-                                        })
-                                    }
-                                }}
+                                onClick={() =>
+                                    setSelectedOptions((prev) =>
+                                        prev.quantity > 1
+                                            ? {
+                                                  ...prev,
+                                                  quantity: prev.quantity - 1,
+                                              }
+                                            : prev
+                                    )
+                                }
                             >
                                 {'-'}
                             </span>
                             <p>{selectedOptions.quantity}</p>
                             <span
                                 onClick={() =>
-                                    setSelectedOptions({
-                                        ...selectedOptions,
-                                        quantity: selectedOptions.quantity + 1,
-                                    })
+                                    setSelectedOptions((prev) => ({
+                                        ...prev,
+                                        quantity: prev.quantity + 1,
+                                    }))
                                 }
                             >
                                 {'+'}
@@ -193,21 +215,12 @@ const ProductPage = () => {
                         </div>
                     </div>
                 </div>
-                <p>{info}</p>
-                <button
-                    className={'add-to-cart'}
-                    onClick={() => addToCartOrGoToCart()}
-                >
-                    {actionButton}
+                <button className='add-to-cart' onClick={handleAddToCart}>
+                    {action}
                 </button>
-                <h2
-                    style={{
-                        marginTop: '20px',
-                        textAlign: 'center',
-                    }}
-                >
-                    “If you don’t give a care what people think other than good
-                    about you, then this is home.”
+                <h2 style={{ marginTop: '20px', textAlign: 'center' }}>
+                    “If you don't care what people think about you, anywhere is
+                    home.”
                 </h2>
             </div>
         </div>

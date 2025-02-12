@@ -62,8 +62,6 @@ const AboutPage = () => {
                     meets streetwear.
                 </p>
             </div>
-            <h1>Shop the collection</h1>
-            {products.length > 0 && <ProductGallery products={products} />}
         </div>
     )
 }

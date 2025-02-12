@@ -13,6 +13,7 @@ import ContactPage from './Components/ContactPage.jsx'
 import ProductPage from './Components/ProductPage.jsx'
 import CartPage from './Components/CartPage.jsx'
 import EmailSignUp from './Components/EmailSignUp.jsx'
+import { CartProvider } from './Components/CartContext.jsx'
 
 export const ShopContext = React.createContext()
 
@@ -53,18 +54,20 @@ function App() {
 
     return (
         <ShopContext.Provider value={{ client, checkoutId }}>
-            <Router>
-                <Navbar />
-                <Routes>
-                    <Route path='/' element={<HomePage />} />
-                    <Route path='/shop' element={<ShopPage />} />
-                    <Route path='/about' element={<AboutPage />} />
-                    <Route path='/contact' element={<ContactPage />} />
-                    <Route path='/products/:id' element={<ProductPage />} />
-                    <Route path='/cart' element={<CartPage />} />
-                </Routes>
-                <Footer />
-            </Router>
+            <CartProvider>
+                <Router>
+                    <Navbar />
+                    <Routes>
+                        <Route path='/' element={<HomePage />} />
+                        <Route path='/shop' element={<ShopPage />} />
+                        <Route path='/about' element={<AboutPage />} />
+                        <Route path='/contact' element={<ContactPage />} />
+                        <Route path='/products/:id' element={<ProductPage />} />
+                        <Route path='/cart' element={<CartPage />} />
+                    </Routes>
+                    <Footer />
+                </Router>
+            </CartProvider>
         </ShopContext.Provider>
     )
 }

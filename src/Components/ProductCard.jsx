@@ -32,10 +32,10 @@ const ProductCard = ({ product }) => {
                     <h3>{title}</h3>
                 </Link>
                 <p>
-                    ${price}{' '}
+                    {price}{' '}
                     {compareAtPrice && (
                         <span className={'compare-at-price'}>
-                            ${compareAtPrice}
+                            {compareAtPrice}
                         </span>
                     )}
                 </p>
